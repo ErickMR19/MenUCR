@@ -1,7 +1,8 @@
 # CakePHP 3
-
+/vendor/*
 /tmp/*
 /logs/*
+.idea/*
 
 # CakePHP 2
 
