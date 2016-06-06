@@ -31,25 +31,15 @@ CREATE TABLE users (
     last_name_1 varchar(30) NOT NULL,
     last_name_2 varchar(30),
     association_id INT UNSIGNED, 
+	role varchar(128) NOT NULL,
 
     FOREIGN KEY(association_id) REFERENCES associations(id),
 
+	CONSTRAINT chk_role 
+	CHECK ((role = 'admin') OR (role = 'manager' AND association_id IS NOT NULL)),
     UNIQUE(username)
 );
 
-CREATE TABLE roles (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name varchar(128) NOT NULL,
-    UNIQUE(name)
-);
-
-CREATE TABLE roles_users(
-     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-     user_id INT UNSIGNED NOT NULL,
-     role_id  INT UNSIGNED NOT NULL,
-     FOREIGN KEY(user_id) REFERENCES users(id),
-     FOREIGN KEY(role_id) REFERENCES roles(id)
-);
 
 CREATE TABLE restaurants(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
