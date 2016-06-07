@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <?php echo $this->Html->meta('favicon.ico','webroot/favicon.ico',array('type' => 'icon'));?>
     <title>Administración</title>
 
     <!-- Bootstrap Core CSS -->
@@ -17,6 +17,7 @@
 
     <!-- Custom CSS -->
     <?= $this->Html->css('sb-admin.css') ?>
+    <?= $this->Html->css('layout.css') ?>
 
     <!-- Morris Charts CSS -->
     <?= $this->Html->css('plugins/morris.css') ?>
@@ -51,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="default.ctp">Administración</a>
+                <a class="navbar-brand" href="#">Administración</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -161,8 +162,8 @@
                         <a  data-toggle="collapse" data-target="#menu_id">Menús</a>
                         <div id="menu_id" class="collapse">
                             <ul>
-                                <i><?php echo $this->Html->link('Nuevo Menú',['controller'=>'Menus','action'=>'add']);?></i><br>
-                                <i><?php echo $this->Html->link('Administrar Menús',['controller'=>'Menus','action'=>'index']);?></i><br>
+                                <li><?php echo $this->Html->link('Nuevo Menú',['controller'=>'Menus','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Menús',['controller'=>'Menus','action'=>'index']);?></li><br>
                             </ul>
                         </div>
                     </li>
@@ -170,8 +171,8 @@
                         <a  data-toggle="collapse" data-target="#dishes_id">Platillos</a>
                         <div id="dishes_id" class="collapse">
                             <ul>
-                                <i><?php echo $this->Html->link('Nuevo Platillo',['controller'=>'Dishes','action'=>'add']);?></i><br>
-                                <i><?php echo $this->Html->link('Administrar Platillos',['controller'=>'Dishes','action'=>'index']);?></i><br>
+                                <li><?php echo $this->Html->link('Nuevo Platillo',['controller'=>'Dishes','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Platillos',['controller'=>'Dishes','action'=>'index']);?></li><br>
                             </ul>
                         </div>
                     </li>
@@ -179,43 +180,31 @@
                         <a  data-toggle="collapse" data-target="#categories_id">Tipos de Platillos</a>
                         <div id="categories_id" class="collapse">
                             <ul>
-                                <i><?php echo $this->Html->link('Nuevo Tipo',['controller'=>'Categories','action'=>'add']);?></i><br>
-                                <i><?php echo $this->Html->link('Administrar Tipos',['controller'=>'Categories','action'=>'index']);?></i><br>
+                                <li><?php echo $this->Html->link('Nuevo Tipo',['controller'=>'Categories','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Tipos',['controller'=>'Categories','action'=>'index']);?></li><br>
                             </ul>
                         </div>
                     </li>
                     <li>
                         <a  data-toggle="collapse" data-target="#restaurants_id">Sodas</a>
                         <div id="restaurants_id" class="collapse">
+
                             <ul>
-                                <i><?php echo $this->Html->link('Nueva Soda',['controller'=>'Restaurants','action'=>'add']);?></i><br>
-                                <i><?php echo $this->Html->link('Administrar Sodas',['controller'=>'Restaurants','action'=>'index']);?></i><br>
+                                <li><?php echo $this->Html->link('Nueva Soda',['controller'=>'Restaurants','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Sodas',['controller'=>'Restaurants','action'=>'index']);?></li><br>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                        <a  data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
+                        <div id="headquarters_id" class="collapse">
+                            <ul>
+                                <li><?php echo $this->Html->link('Nueva Sede',['controller'=>'Headquarters','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Sedes',['controller'=>'Headquarters','action'=>'index']);?></li><br>
+                            </ul>
+                        </div>
                     </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
