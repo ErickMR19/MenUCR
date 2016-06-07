@@ -30,7 +30,7 @@ CREATE TABLE users (
     name varchar(128) NOT NULL,
     last_name_1 varchar(30) NOT NULL,
     last_name_2 varchar(30),
-    association_id INT UNSIGNED NOT NULL, 
+    association_id INT UNSIGNED, 
 
     FOREIGN KEY(association_id) REFERENCES associations(id),
 
@@ -43,7 +43,7 @@ CREATE TABLE roles (
     UNIQUE(name)
 );
 
-CREATE TABLE users_roles(
+CREATE TABLE roles_users(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
      user_id INT UNSIGNED NOT NULL,
      role_id  INT UNSIGNED NOT NULL,
