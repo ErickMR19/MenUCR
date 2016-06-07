@@ -1,19 +1,14 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Headquarters'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
+
 <div class="headquarters form large-9 medium-8 columns content">
     <?= $this->Form->create($headquarters) ?>
     <fieldset>
-        <legend><?= __('Add Headquarters') ?></legend>
+        <h2>Agregar sedes</h2>
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('x');
-            echo $this->Form->input('y');
+            echo $this->Form->input('name', ['label' => 'Nombre' , 'class' => 'form-control']);
+            echo $this->Form->input('x' , ['label' => 'X' , 'class' => 'form-control', 'placeholder' => 'longitud']);
+            echo $this->Form->input('y',  ['label' => 'Y' , 'class' => 'form-control', 'placeholder' => 'latitud']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>

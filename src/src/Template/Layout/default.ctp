@@ -109,8 +109,8 @@
                     </li>
 
                     <li>
-                        <a  data-toggle="collapse" data-target="#headquarters_id">Menús</a>
-                        <div id="headquarters_id" class="collapse">
+                        <a  data-toggle="collapse" data-target="#menus_id">Menús</a>
+                        <div id="menus_id" class="collapse">
                             <ul>
                                 <li><?php echo $this->Html->link('Nuevo Menú',['controller'=>'MenusDishesCategories','action'=>'add']);?></li><br>
                                 <li><?php echo $this->Html->link('Administrar Menús',['controller'=>'MenusDishesCategories','action'=>'index']);?></li><br>
