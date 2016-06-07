@@ -1,0 +1,24 @@
+[03-Jun-2016 15:26:04 UTC] PHP Warning:  require(/home/ubuntu/workspace/Aplicaciones/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/Aplicaciones/src/config/bootstrap.php on line 38
+[03-Jun-2016 15:26:04 UTC] PHP Stack trace:
+[03-Jun-2016 15:26:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[03-Jun-2016 15:26:04 UTC] PHP   2. require() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:27
+[03-Jun-2016 15:26:04 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/Aplicaciones/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/Aplicaciones/src/config/bootstrap.php on line 38
+[03-Jun-2016 15:26:04 UTC] PHP Stack trace:
+[03-Jun-2016 15:26:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[03-Jun-2016 15:26:04 UTC] PHP   2. require() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:27
+[03-Jun-2016 15:53:39 UTC] PHP Warning:  require(/home/ubuntu/workspace/Aplicaciones/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/Aplicaciones/src/config/bootstrap.php on line 38
+[03-Jun-2016 15:53:39 UTC] PHP Stack trace:
+[03-Jun-2016 15:53:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[03-Jun-2016 15:53:39 UTC] PHP   2. require() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:27
+[03-Jun-2016 15:53:39 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/Aplicaciones/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/Aplicaciones/src/config/bootstrap.php on line 38
+[03-Jun-2016 15:53:39 UTC] PHP Stack trace:
+[03-Jun-2016 15:53:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[03-Jun-2016 15:53:39 UTC] PHP   2. require() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:27
+[06-Jun-2016 21:53:42 UTC] PHP Warning:  require(/home/ubuntu/workspace/Aplicaciones/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/Aplicaciones/src/config/bootstrap.php on line 38
+[06-Jun-2016 21:53:42 UTC] PHP Stack trace:
+[06-Jun-2016 21:53:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[06-Jun-2016 21:53:42 UTC] PHP   2. require() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:27
+[06-Jun-2016 21:53:42 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/Aplicaciones/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/Aplicaciones/src/config/bootstrap.php on line 38
+[06-Jun-2016 21:53:42 UTC] PHP Stack trace:
+[06-Jun-2016 21:53:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[06-Jun-2016 21:53:42 UTC] PHP   2. require() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:27
