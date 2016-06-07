@@ -1,24 +1,37 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Menus'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Restaurants'), ['controller' => 'Restaurants', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Restaurant'), ['controller' => 'Restaurants', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Menus Dishes Categories'), ['controller' => 'MenusDishesCategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Menus Dishes Category'), ['controller' => 'MenusDishesCategories', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="menus form large-9 medium-8 columns content">
-    <?= $this->Form->create($menu) ?>
-    <fieldset>
-        <legend><?= __('Add Menu') ?></legend>
-        <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('type');
-            echo $this->Form->input('restaurant_id', ['options' => $restaurants]);
-            echo $this->Form->input('schedule');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<?= $this->Form->create($menu,['role'=>'form']) ?>
+
+<div class="row text-center">
+    <div class="col-xs-12">
+        <h2>Agregar nuevo tipo de menú</h2>
+        <br>
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group">
+            <?php
+            echo $this->Form->input('name',['class'=>'form-control','placeholder'=>'Nombre del Menú','label'=>false]);
+            echo "<br>";
+            echo $this->Form->input('type',['class'=>'form-control','label'=>false,'label'=>'Tipo de Menú']);
+            echo "<br>";
+            echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control','label'=>'Restaurante Asociado']);
+            echo "<br>";
+            echo $this->Form->input('schedule',['class'=>'form-control','label'=>false,'placeholder'=>'Horario del Menú']);
+            ?>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row text-center">
+    <div class="col-xs-12">
+        <?= $this->Form->button(__('Agregar'),['class'=>'btn btn-primary']) ?>
+        <br>
+        <br>
+    </div>
+</div>
+
+<?= $this->Form->end() ?>
+

@@ -56,86 +56,8 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -159,11 +81,11 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a  data-toggle="collapse" data-target="#menu_id">Menús</a>
+                        <a  data-toggle="collapse" data-target="#menu_id">Tipos de Menú</a>
                         <div id="menu_id" class="collapse">
                             <ul>
-                                <li><?php echo $this->Html->link('Nuevo Menú',['controller'=>'Menus','action'=>'add']);?></li><br>
-                                <li><?php echo $this->Html->link('Administrar Menús',['controller'=>'Menus','action'=>'index']);?></li><br>
+                                <li><?php echo $this->Html->link('Nuevo Tipo Menú',['controller'=>'Menus','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Tipos Menús',['controller'=>'Menus','action'=>'index']);?></li><br>
                             </ul>
                         </div>
                     </li>
@@ -185,6 +107,17 @@
                             </ul>
                         </div>
                     </li>
+
+                    <li>
+                        <a  data-toggle="collapse" data-target="#headquarters_id">Menús</a>
+                        <div id="headquarters_id" class="collapse">
+                            <ul>
+                                <li><?php echo $this->Html->link('Nuevo Menú',['controller'=>'MenusDishesCategories','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Menús',['controller'=>'MenusDishesCategories','action'=>'index']);?></li><br>
+                            </ul>
+                        </div>
+                    </li>
+
                     <li>
                         <a  data-toggle="collapse" data-target="#restaurants_id">Sodas</a>
                         <div id="restaurants_id" class="collapse">
@@ -195,6 +128,7 @@
                             </ul>
                         </div>
                     </li>
+
                     <li>
                         <a  data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
                         <div id="headquarters_id" class="collapse">
@@ -204,7 +138,6 @@
                             </ul>
                         </div>
                     </li>
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
