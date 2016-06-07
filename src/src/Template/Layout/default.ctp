@@ -158,16 +158,40 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="default.ctp"><i class="fa fa-fw fa-dashboard"></i> Menús</a>
+                        <a  data-toggle="collapse" data-target="#menu_id">Menús</a>
+                        <div id="menu_id" class="collapse">
+                            <ul>
+                                <i><?php echo $this->Html->link('Nuevo Menú',['controller'=>'Menus','action'=>'add']);?></i><br>
+                                <i><?php echo $this->Html->link('Administrar Menús',['controller'=>'Menus','action'=>'index']);?></i><br>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Platillos</a>
+                        <a  data-toggle="collapse" data-target="#dishes_id">Platillos</a>
+                        <div id="dishes_id" class="collapse">
+                            <ul>
+                                <i><?php echo $this->Html->link('Nuevo Platillo',['controller'=>'Dishes','action'=>'add']);?></i><br>
+                                <i><?php echo $this->Html->link('Administrar Platillos',['controller'=>'Dishes','action'=>'index']);?></i><br>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Categorías de platillos</a>
+                        <a  data-toggle="collapse" data-target="#categories_id">Tipos de Platillos</a>
+                        <div id="categories_id" class="collapse">
+                            <ul>
+                                <i><?php echo $this->Html->link('Nuevo Tipo',['controller'=>'Categories','action'=>'add']);?></i><br>
+                                <i><?php echo $this->Html->link('Administrar Tipos',['controller'=>'Categories','action'=>'index']);?></i><br>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Sodas</a>
+                        <a  data-toggle="collapse" data-target="#restaurants_id">Sodas</a>
+                        <div id="restaurants_id" class="collapse">
+                            <ul>
+                                <i><?php echo $this->Html->link('Nueva Soda',['controller'=>'Restaurants','action'=>'add']);?></i><br>
+                                <i><?php echo $this->Html->link('Administrar Sodas',['controller'=>'Restaurants','action'=>'index']);?></i><br>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
