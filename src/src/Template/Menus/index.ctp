@@ -4,8 +4,8 @@
         <li><?= $this->Html->link(__('New Menu'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Restaurants'), ['controller' => 'Restaurants', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Restaurant'), ['controller' => 'Restaurants', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Menus Dishes Categories'), ['controller' => 'MenusDishesCategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Menus Dishes Category'), ['controller' => 'MenusDishesCategories', 'action' => 'add']) ?></li>
+       
+
     </ul>
 </nav>
 <div class="menus index large-9 medium-8 columns content">
@@ -14,11 +14,11 @@
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('name') ?></th>
-                <th><?= $this->Paginator->sort('type') ?></th>
-                <th><?= $this->Paginator->sort('restaurant_id') ?></th>
-                <th><?= $this->Paginator->sort('schedule') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th><?= $this->Paginator->sort('Nombre del Menú') ?></th>
+                <th><?= $this->Paginator->sort('Tipo de Menú') ?></th>
+                <th><?= $this->Paginator->sort('Soda a la que pertenece') ?></th>
+                <th><?= $this->Paginator->sort('Horario') ?></th>
+                <th class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -30,9 +30,9 @@
                 <td><?= $menu->has('restaurant') ? $this->Html->link($menu->restaurant->id, ['controller' => 'Restaurants', 'action' => 'view', $menu->restaurant->id]) : '' ?></td>
                 <td><?= h($menu->schedule) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $menu->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $menu->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $menu->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $menu->id]) ?>
+                    <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $menu->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menu->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
