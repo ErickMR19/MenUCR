@@ -1,7 +1,7 @@
 
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2><?= h($menusDishesCategory->id) ?></h2>
+        <h2>Menú #<?= h($menusDishesCategory->id) ?></h2>
     </div>
 </div>
 
