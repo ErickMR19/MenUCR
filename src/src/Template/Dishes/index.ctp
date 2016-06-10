@@ -26,7 +26,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('Ver'), ['action' => 'view', $dish->id]) ?>
                         <?= $this->Html->link(__('Editar'), ['action' => 'edit', $dish->id]) ?>
-                        <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $dish->id], ['confirm' => __('Are you sure you want to delete # {0}?', $dish->id)]) ?>
+                        <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $dish->id], ['confirm' => __('Estas seguro de que quieres borrar este platillo # {0}?', $dish->id)]) ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

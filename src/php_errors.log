@@ -1,0 +1,9 @@
+[10-Jun-2016 22:03:26 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/ubuntu/workspace/Aplicaciones/src/src/Template/Menus/add.ctp on line 16
+[10-Jun-2016 22:03:26 UTC] PHP Stack trace:
+[10-Jun-2016 22:03:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:0
+[10-Jun-2016 22:03:26 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/Aplicaciones/src/webroot/index.php:37
+[10-Jun-2016 22:03:26 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/Aplicaciones/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[10-Jun-2016 22:03:26 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/Aplicaciones/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[10-Jun-2016 22:03:26 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/Aplicaciones/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[10-Jun-2016 22:03:26 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/Aplicaciones/src/vendor/cakephp/cakephp/src/View/View.php:587
+[10-Jun-2016 22:03:26 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/Aplicaciones/src/vendor/cakephp/cakephp/src/View/View.php:952

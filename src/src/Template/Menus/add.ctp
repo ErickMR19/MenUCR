@@ -13,9 +13,9 @@
             <?php
             echo $this->Form->input('name',['class'=>'form-control','placeholder'=>'Nombre del Menú','label'=>false]);
             echo "<br>";
-            echo $this->Form->input('type',['class'=>'form-control','label'=>false,'label'=>'Tipo de Menú']);
+            echo $this->Form->input('type',['class'=>'form-control','label'=>false,'placeholder'=>'Tipo de menú']);
             echo "<br>";
-            echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control','label'=>'Restaurante Asociado']);
+            echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control','empty'=>'Restaurante Asociado','label'=>false]);
             echo "<br>";
             echo $this->Form->input('schedule',['class'=>'form-control','label'=>false,'placeholder'=>'Horario del Menú']);
             ?>

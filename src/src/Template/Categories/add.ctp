@@ -15,7 +15,7 @@
         echo "<br>";
         echo $this->Form->input('price',['class'=>'form-control','label'=>false, 'placeholder'=>'Precio del Platillo']);
         echo "<br>";
-        echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control', 'label'=> 'Restaurante Asociado']);
+        echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control', 'label'=> false, 'empty'=>'Restaurante Asociado']);
         ?>
     </div>
 

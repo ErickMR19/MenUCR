@@ -31,7 +31,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $menusDishesCategory->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $menusDishesCategory->id]) ?>
-                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $menusDishesCategory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menusDishesCategory->id)]) ?>
+                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $menusDishesCategory->id], ['confirm' => __('Estas seguro de que quieres borrar este menu # {0}?', $menusDishesCategory->id)]) ?>
                 </td>
             </tr>
         <?php endforeach; ?>
