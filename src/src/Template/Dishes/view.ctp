@@ -7,15 +7,22 @@
         <li><?= $this->Html->link(__('New Dish'), ['action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="dishes view large-9 medium-8 columns content">
-    <h3><?= h($dish->name) ?></h3>
-    <table class="vertical-table">
+
+
+<div class="row text-center">
+    <div class="col-xs-12">
+        <h2><?= h($dish->name) ?></h2>
+    </div>
+</div>
+<br><br>
+
+    <table class="table">
         <tr>
-            <th><?= __('Name') ?></th>
+            <th><?= __('Nombre') ?></th>
             <td><?= h($dish->name) ?></td>
         </tr>
         <tr>
-            <th><?= __('Description') ?></th>
+            <th><?= __('Descripción') ?></th>
             <td><?= h($dish->description) ?></td>
         </tr>
         <tr>
@@ -23,4 +30,4 @@
             <td><?= $this->Number->format($dish->id) ?></td>
         </tr>
     </table>
-</div>
+
