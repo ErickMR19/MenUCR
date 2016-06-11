@@ -11,7 +11,7 @@
     <?php
     echo $this->Form->input('name', ['label'=>'Nombre', 'class'=>'form-control']);
     echo $this->Form->input('type', ['label'=>'Tipo', 'class'=>'form-control']);
-    echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'label'=>'Restaurante', 'class'=>'form-control']);
+    echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'label'=>false,'empty'=>'Restaurante', 'class'=>'form-control']);
     echo $this->Form->input('schedule', ['label'=>'Horario', 'class'=>'form-control']);
     ?>
 </div>

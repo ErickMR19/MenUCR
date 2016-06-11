@@ -9,11 +9,11 @@
 
     <div class="form-group">
         <?php
-        echo $this->Form->input('menu_id', ['options' => $menus, 'class'=>'form-control', 'label'=>'Id del tipo de menú']);
+        echo $this->Form->input('menu_id', ['options' => $menus, 'class'=>'form-control', 'label'=>false,'empty'=>'Id del tipo de menú']);
         echo "<br>";
-        echo $this->Form->input('dishe_id', ['options' => $dishes, 'class'=>'form-control', 'label'=>'Id del platillo']);
+        echo $this->Form->input('dishe_id', ['options' => $dishes, 'class'=>'form-control', 'label'=>false,'empty'=>'Id del platillo']);
         echo "<br>";
-        echo $this->Form->input('category_id', ['options' => $categories, 'class'=>'form-control', 'label'=>'Id del tipo de platillo']);
+        echo $this->Form->input('category_id', ['options' => $categories, 'class'=>'form-control', 'label'=>false,'empty'=>'Id del tipo de platillo']);
         echo "<br>";
         echo $this->Form->input('date',['class'=>'form-control', 'label'=>'Fecha']);
         ?>
