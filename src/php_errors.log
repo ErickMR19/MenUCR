@@ -41,3 +41,61 @@
 [07-Jun-2016 22:21:40 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
 [07-Jun-2016 22:21:40 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
 [07-Jun-2016 22:21:40 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[11-Jun-2016 17:05:03 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:03 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:03 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:05:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:03 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:03 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:05:52 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:52 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:52 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:05:52 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:52 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:52 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:22 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:22 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:22 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:22 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:22 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:22 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:51 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:51 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:51 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:51 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:51 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:51 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:11:24 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:11:24 UTC] PHP Stack trace:
+[11-Jun-2016 17:11:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:11:24 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:11:24 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:11:24 UTC] PHP Stack trace:
+[11-Jun-2016 17:11:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:11:24 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 21:58:05 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/ubuntu/workspace/src/src/Template/Restaurants/edit.ctp on line 26
+[11-Jun-2016 21:58:05 UTC] PHP Stack trace:
+[11-Jun-2016 21:58:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 21:58:05 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[11-Jun-2016 21:58:05 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[11-Jun-2016 21:58:05 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[11-Jun-2016 21:58:05 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[11-Jun-2016 21:58:05 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[11-Jun-2016 21:58:05 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[11-Jun-2016 21:58:34 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/ubuntu/workspace/src/src/Template/Restaurants/edit.ctp on line 26
+[11-Jun-2016 21:58:34 UTC] PHP Stack trace:
+[11-Jun-2016 21:58:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 21:58:34 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[11-Jun-2016 21:58:34 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[11-Jun-2016 21:58:34 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[11-Jun-2016 21:58:34 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[11-Jun-2016 21:58:34 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[11-Jun-2016 21:58:34 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
