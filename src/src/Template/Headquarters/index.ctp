@@ -1,18 +1,18 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Headquarters'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
+<div class="row text-center">
+    <div class="col-xs-12">
+        <h2>Sedes</h2>
+        <br>
+    </div>
+</div>
 <div class="headquarters index large-9 medium-8 columns content">
-    <h3><?= __('Headquarters') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="table-responsive">
+    <table class="table">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('name') ?></th>
-                <th><?= $this->Paginator->sort('x') ?></th>
-                <th><?= $this->Paginator->sort('y') ?></th>
+                <th><?= $this->Paginator->sort('Nombre') ?></th>
+                <th><?= $this->Paginator->sort('Latitud') ?></th>
+                <th><?= $this->Paginator->sort('Longitud') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -24,19 +24,20 @@
                 <td><?= $this->Number->format($headquarters->x) ?></td>
                 <td><?= $this->Number->format($headquarters->y) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $headquarters->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $headquarters->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $headquarters->id], ['confirm' => __('Are you sure you want to delete # {0}?', $headquarters->id)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $headquarters->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $headquarters->id]) ?>
+                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $headquarters->id], ['confirm' => __('Estas seguro de que quieres borrarlo # {0}?', $headquarters->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>

@@ -99,3 +99,30 @@
 [11-Jun-2016 21:58:34 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
 [11-Jun-2016 21:58:34 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
 [11-Jun-2016 21:58:34 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[12-Jun-2016 01:21:16 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/src/src/Template/Headquarters/edit.ctp on line 14
+[12-Jun-2016 01:21:16 UTC] PHP Stack trace:
+[12-Jun-2016 01:21:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[12-Jun-2016 01:21:16 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[12-Jun-2016 01:21:16 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[12-Jun-2016 01:21:16 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[12-Jun-2016 01:21:16 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[12-Jun-2016 01:21:16 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[12-Jun-2016 01:21:16 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[12-Jun-2016 01:21:28 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/src/src/Template/Headquarters/edit.ctp on line 14
+[12-Jun-2016 01:21:28 UTC] PHP Stack trace:
+[12-Jun-2016 01:21:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[12-Jun-2016 01:21:28 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[12-Jun-2016 01:21:28 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[12-Jun-2016 01:21:28 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[12-Jun-2016 01:21:28 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[12-Jun-2016 01:21:28 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[12-Jun-2016 01:21:28 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[12-Jun-2016 01:23:15 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/src/src/Template/Headquarters/edit.ctp on line 13
+[12-Jun-2016 01:23:15 UTC] PHP Stack trace:
+[12-Jun-2016 01:23:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[12-Jun-2016 01:23:15 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[12-Jun-2016 01:23:15 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[12-Jun-2016 01:23:15 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[12-Jun-2016 01:23:15 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[12-Jun-2016 01:23:15 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[12-Jun-2016 01:23:15 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952

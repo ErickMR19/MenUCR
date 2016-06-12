@@ -1,3 +1,9 @@
+<style>    
+#map {
+    width: 90%;
+    height: 400px;
+}
+</style>
 <div class="row text-center">
     <div class="col-xs-12">
         <h2>Está viendo la soda </h2><h2><?= h($restaurant->id) ?></h2>
@@ -35,15 +41,18 @@
             <td><?= $this->Number->format($restaurant->y) ?></td>
         </tr>
     </table>
+    <div align="center">
+    <div id="map"></div></br>
+    </div></br>
     <div class="related">
         <h4><?= __('Categorías relacionadas') ?></h4>
         <?php if (!empty($restaurant->categories)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
-                <th><?= __('Name') ?></th>
-                <th><?= __('Price') ?></th>
-                <th><?= __('Restaurant Id') ?></th>
+                <th><?= __('Nombre') ?></th>
+                <th><?= __('Precio') ?></th>
+                <th><?= __('Id de Restaurante') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($restaurant->categories as $categories): ?>
@@ -68,10 +77,10 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
-                <th><?= __('Name') ?></th>
-                <th><?= __('Type') ?></th>
-                <th><?= __('Restaurant Id') ?></th>
-                <th><?= __('Schedule') ?></th>
+                <th><?= __('Nombre') ?></th>
+                <th><?= __('Tipo') ?></th>
+                <th><?= __('Id de restaurante') ?></th>
+                <th><?= __('Horario') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($restaurant->menus as $menus): ?>
@@ -92,3 +101,31 @@
         <?php endif; ?>
     </div>
 </div>
+<div id="div_latitud" hidden>
+<?php
+    echo $restaurant->x;
+?>
+</div>
+<div id="div_longitud" hidden>
+<?php
+    echo $restaurant->y;
+?>
+</div>
+<script>
+    var div_latitud = document.getElementById("div_latitud");
+    var latitud = div_latitud.textContent;
+    var div_longitud = document.getElementById("div_longitud");
+    var longitud = div_longitud.textContent;
+    function initMap() {
+    var myLatLng = {lat: parseFloat(latitud), lng: parseFloat(longitud)};
+    var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: myLatLng
+    });
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map
+    });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
