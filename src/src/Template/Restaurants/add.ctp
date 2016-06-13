@@ -20,9 +20,32 @@
                 <?php
                     echo $this->Form->input('schedule', ['class'=>'form-control','placeholder'=>'Horario','label'=>false]);
                     echo "<br>";
-                    echo $this->Form->input('card', ['class'=>'form-control','placeholder'=>'Aceptan tarjeta','label'=>false]);
+                ?>
+                <div class="container row">
+                  <h4>¿Aceptará la soda el pago con tarjetas?</h4>
+                    <label class="radio-inline">
+                      <input type="radio" name="optradio" onclick="document.getElementById('card').value=1;">Sí
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="optradio" onclick="document.getElementById('card').value=0;">No
+                    </label>
+                </div>
+                <?php   
+                    echo $this->Form->input('card', ['class'=>'form-control','placeholder'=>'Aceptan tarjeta','label'=>false, 'type'=>'hidden']);
                     echo "<br>";
                 ?>
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Escoja la sede para la soda
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                  <?php if (!empty($sedes)): ?>
+                        <?php foreach ($sedes as $_sedes): ?>
+                        <li><a onclick="actualizar_mapa(<?php echo $_sedes->x?> , <?php echo $_sedes->y ?>);"><?= h($_sedes->name) ?></a></li>
+                        <?php endforeach; ?>
+                  <?php endif; ?>
+                  </ul>
+                </div>
+                <?php echo "<br>"; ?>
                 <div align="center">
                 <div id="map"></div></br>
                 <div>
@@ -36,7 +59,7 @@
                     echo "<br>";
                     echo $this->Form->input('image_name', ['class'=>'form-control','placeholder'=>'Nombre de la imagen','label'=>false]);
                     echo "<br>";
-                    echo $this->Form->input('association_id', ['options' => $associations, 'empty' => true, 'class'=>'form-control','empty'=>'Asociación','label'=>false]);
+                    echo $this->Form->input('association_id', ['options' => $associations, 'empty' => true, 'class'=>'form-control', 'empty'=>'Asociación','label'=>false]);
                 ?>
         </div>
     </div>
