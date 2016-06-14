@@ -1,29 +1,32 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $category->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Restaurants'), ['controller' => 'Restaurants', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Restaurant'), ['controller' => 'Restaurants', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Menus Dishes Categories'), ['controller' => 'MenusDishesCategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Menus Dishes Category'), ['controller' => 'MenusDishesCategories', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="categories form large-9 medium-8 columns content">
-    <?= $this->Form->create($category) ?>
-    <fieldset>
-        <legend><?= __('Edit Category') ?></legend>
+
+
+    <?= $this->Form->create($category,['role'=>'form']) ?>
+
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <h2><?= h($category->name) ?></h2>
+        </div>
+    </div>
+
+    <div class="form-group">
         <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('price');
-            echo $this->Form->input('restaurant_id', ['options' => $restaurants]);
+        echo $this->Form->input('name', ['class'=>'form-control', 'label'=>'Nombre']);
+        echo "<br>";
+        echo $this->Form->input('price', ['class'=>'form-control', 'label'=>'Precio']);
+        echo "<br>";
+        echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control', 'label'=>false,'empty'=>'Restaurante']);
+        echo "<br>";
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    </div>
+
+
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <?= $this->Form->button(__('Modificar'),['class'=>'btn btn-primary']) ?>
+            <br>
+            <br>
+        </div>
+    </div>
+
     <?= $this->Form->end() ?>
-</div>
+

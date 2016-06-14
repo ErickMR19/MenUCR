@@ -10,15 +10,30 @@
         <li><?= $this->Html->link(__('List Dishes'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="dishes form large-9 medium-8 columns content">
+
+
+
     <?= $this->Form->create($dish) ?>
-    <fieldset>
-        <legend><?= __('Edit Dish') ?></legend>
-        <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('description');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <h2>Editar platillo</h2>
+            </div>
+        </div>
+<div class="form-group">
+    <?php
+    echo $this->Form->input('name',['class'=>'form-control']);
+    echo $this->Form->input('description', ['class'=>'form-control', 'type'=>'textarea']);
+    ?>
 </div>
+
+
+<div class="row text-center">
+    <div class="col-xs-12">
+        <?= $this->Form->button(__('Modificar'),['class'=>'btn btn-primary']) ?>
+        <br>
+        <br>
+    </div>
+</div>
+    <?= $this->Form->end() ?>
+

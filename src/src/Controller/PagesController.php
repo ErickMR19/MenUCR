@@ -38,7 +38,7 @@ class PagesController extends AppController
     public function display()
     {
         $path = func_get_args();
-
+        debug($path);
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
@@ -61,5 +61,10 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
+    }
+
+    public function view()
+    {
+        
     }
 }

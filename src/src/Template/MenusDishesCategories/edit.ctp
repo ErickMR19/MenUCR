@@ -1,32 +1,32 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $menusDishesCategory->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $menusDishesCategory->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Menus Dishes Categories'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Menus'), ['controller' => 'Menus', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Menu'), ['controller' => 'Menus', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Dishes'), ['controller' => 'Dishes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Dish'), ['controller' => 'Dishes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="menusDishesCategories form large-9 medium-8 columns content">
+
     <?= $this->Form->create($menusDishesCategory) ?>
-    <fieldset>
-        <legend><?= __('Edit Menus Dishes Category') ?></legend>
+
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <h2>Editar Menú</h2>
+            </div>
+        </div>
+
+    <div class="form-group">
         <?php
-            echo $this->Form->input('menu_id', ['options' => $menus]);
-            echo $this->Form->input('dishe_id', ['options' => $dishes]);
-            echo $this->Form->input('category_id', ['options' => $categories]);
-            echo $this->Form->input('date');
+        echo $this->Form->input('menu_id', ['options' => $menus, 'class'=>'form-control', 'label'=>false,'empty'=>'Id del tipo de menú']);
+        echo "<br>";
+        echo $this->Form->input('dishe_id', ['options' => $dishes, 'class'=>'form-control', 'label'=>false,'empty'=>'Id del platillo']);
+        echo "<br>";
+        echo $this->Form->input('category_id', ['options' => $categories, 'class'=>'form-control', 'label'=>false,'empty'=>'Id del tipo de platillo']);
+        echo "<br>";
+        echo $this->Form->input('date',['class'=>'form-control', 'label'=>'Fecha']);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    </div>
+
+
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <?= $this->Form->button(__('Modificar'),['class'=>'btn btn-primary']) ?>
+            <br>
+            <br>
+        </div>
+    </div>
+
     <?= $this->Form->end() ?>
-</div>
+

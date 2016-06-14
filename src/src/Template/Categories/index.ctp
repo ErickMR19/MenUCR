@@ -1,47 +1,49 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Restaurants'), ['controller' => 'Restaurants', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Restaurant'), ['controller' => 'Restaurants', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Menus Dishes Categories'), ['controller' => 'MenusDishesCategories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Menus Dishes Category'), ['controller' => 'MenusDishesCategories', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="categories index large-9 medium-8 columns content">
-    <h3><?= __('Categories') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+
+<div class="row text-center">
+    <div class="col-xs-12">
+        <h2>Tipos de platillos</h2>
+
+    </div>
+</div>
+<br>
+
+<div class="table-responsive">
+    <table class="table">
         <thead>
-            <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('name') ?></th>
-                <th><?= $this->Paginator->sort('price') ?></th>
-                <th><?= $this->Paginator->sort('restaurant_id') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
+        <tr>
+            <th><?= $this->Paginator->sort('id') ?></th>
+            <th><?= $this->Paginator->sort('Nombre') ?></th>
+            <th><?= $this->Paginator->sort('Precio') ?></th>
+            <th><?= $this->Paginator->sort('Restaurante Asociado') ?></th>
+            <th class="actions"><?= __('Acciones') ?></th>
+        </tr>
         </thead>
         <tbody>
-            <?php foreach ($categories as $category): ?>
+        <?php foreach ($categories as $category): ?>
             <tr>
                 <td><?= $this->Number->format($category->id) ?></td>
                 <td><?= h($category->name) ?></td>
                 <td><?= $this->Number->format($category->price) ?></td>
                 <td><?= $category->has('restaurant') ? $this->Html->link($category->restaurant->id, ['controller' => 'Restaurants', 'action' => 'view', $category->restaurant->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $category->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $category->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $category->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $category->id]) ?>
+                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $category->id], ['confirm' => __('Estas seguro que quieres borrar esta categoria # {0}?', $category->id)]) ?>
                 </td>
             </tr>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
+</div>
+
+
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
+            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
-</div>
+
+<br>
