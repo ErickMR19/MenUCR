@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Restaurants Controller
@@ -10,7 +11,6 @@ use App\Controller\AppController;
  */
 class RestaurantsController extends AppController
 {
-
     /**
      * Index method
      *
@@ -51,6 +51,9 @@ class RestaurantsController extends AppController
      */
     public function add()
     {
+        //$sedes = $this->loadModel('Headquarters')->find('list');
+        //$sedes = $this->loadModel('Headquarters')->query("select * from restaurants;");
+        $sedes = TableRegistry::get('Headquarters')->find();
         $restaurant = $this->Restaurants->newEntity();
         if ($this->request->is('post')) {
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
@@ -62,7 +65,7 @@ class RestaurantsController extends AppController
             }
         }
         $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
-        $this->set(compact('restaurant', 'associations'));
+        $this->set(compact('restaurant', 'associations', 'sedes'));
         $this->set('_serialize', ['restaurant']);
     }
 
@@ -75,6 +78,7 @@ class RestaurantsController extends AppController
      */
     public function edit($id = null)
     {
+        $sedes = TableRegistry::get('Headquarters')->find();
         $restaurant = $this->Restaurants->get($id, [
             'contain' => []
         ]);
@@ -88,7 +92,7 @@ class RestaurantsController extends AppController
             }
         }
         $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
-        $this->set(compact('restaurant', 'associations'));
+        $this->set(compact('restaurant', 'associations', 'sedes'));
         $this->set('_serialize', ['restaurant']);
     }
 

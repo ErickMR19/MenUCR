@@ -1,0 +1,230 @@
+[03-Jun-2016 15:51:49 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[03-Jun-2016 15:51:49 UTC] PHP Stack trace:
+[03-Jun-2016 15:51:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[03-Jun-2016 15:51:49 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[03-Jun-2016 15:51:49 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[03-Jun-2016 15:51:49 UTC] PHP Stack trace:
+[03-Jun-2016 15:51:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[03-Jun-2016 15:51:49 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[07-Jun-2016 21:32:19 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[07-Jun-2016 21:32:19 UTC] PHP Stack trace:
+[07-Jun-2016 21:32:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[07-Jun-2016 21:32:19 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[07-Jun-2016 21:32:19 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[07-Jun-2016 21:32:19 UTC] PHP Stack trace:
+[07-Jun-2016 21:32:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[07-Jun-2016 21:32:19 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[07-Jun-2016 22:20:17 UTC] PHP Parse error:  syntax error, unexpected '?>' in /home/ubuntu/workspace/src/src/Template/Headquarters/add.ctp on line 2
+[07-Jun-2016 22:20:17 UTC] PHP Stack trace:
+[07-Jun-2016 22:20:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[07-Jun-2016 22:20:17 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[07-Jun-2016 22:20:17 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[07-Jun-2016 22:20:17 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[07-Jun-2016 22:20:17 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[07-Jun-2016 22:20:17 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[07-Jun-2016 22:20:17 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[07-Jun-2016 22:21:38 UTC] PHP Parse error:  syntax error, unexpected '?>' in /home/ubuntu/workspace/src/src/Template/Headquarters/add.ctp on line 2
+[07-Jun-2016 22:21:38 UTC] PHP Stack trace:
+[07-Jun-2016 22:21:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[07-Jun-2016 22:21:38 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[07-Jun-2016 22:21:38 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[07-Jun-2016 22:21:38 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[07-Jun-2016 22:21:38 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[07-Jun-2016 22:21:38 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[07-Jun-2016 22:21:38 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[07-Jun-2016 22:21:40 UTC] PHP Parse error:  syntax error, unexpected '?>' in /home/ubuntu/workspace/src/src/Template/Headquarters/add.ctp on line 2
+[07-Jun-2016 22:21:40 UTC] PHP Stack trace:
+[07-Jun-2016 22:21:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[07-Jun-2016 22:21:40 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[07-Jun-2016 22:21:40 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[07-Jun-2016 22:21:40 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[07-Jun-2016 22:21:40 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[07-Jun-2016 22:21:40 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[07-Jun-2016 22:21:40 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[11-Jun-2016 17:05:03 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:03 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:03 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:05:03 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:03 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:03 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:05:52 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:52 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:52 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:05:52 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:05:52 UTC] PHP Stack trace:
+[11-Jun-2016 17:05:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:05:52 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:22 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:22 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:22 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:22 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:22 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:22 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:51 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:51 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:51 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:10:51 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:10:51 UTC] PHP Stack trace:
+[11-Jun-2016 17:10:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:10:51 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:11:24 UTC] PHP Warning:  require(/home/ubuntu/workspace/src/vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:11:24 UTC] PHP Stack trace:
+[11-Jun-2016 17:11:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:11:24 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 17:11:24 UTC] PHP Fatal error:  require(): Failed opening required '/home/ubuntu/workspace/src/vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/src/config/bootstrap.php on line 38
+[11-Jun-2016 17:11:24 UTC] PHP Stack trace:
+[11-Jun-2016 17:11:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 17:11:24 UTC] PHP   2. require() /home/ubuntu/workspace/src/webroot/index.php:27
+[11-Jun-2016 21:58:05 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/ubuntu/workspace/src/src/Template/Restaurants/edit.ctp on line 26
+[11-Jun-2016 21:58:05 UTC] PHP Stack trace:
+[11-Jun-2016 21:58:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 21:58:05 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[11-Jun-2016 21:58:05 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[11-Jun-2016 21:58:05 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[11-Jun-2016 21:58:05 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[11-Jun-2016 21:58:05 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[11-Jun-2016 21:58:05 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[11-Jun-2016 21:58:34 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/ubuntu/workspace/src/src/Template/Restaurants/edit.ctp on line 26
+[11-Jun-2016 21:58:34 UTC] PHP Stack trace:
+[11-Jun-2016 21:58:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[11-Jun-2016 21:58:34 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[11-Jun-2016 21:58:34 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[11-Jun-2016 21:58:34 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[11-Jun-2016 21:58:34 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[11-Jun-2016 21:58:34 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[11-Jun-2016 21:58:34 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[12-Jun-2016 01:21:16 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/src/src/Template/Headquarters/edit.ctp on line 14
+[12-Jun-2016 01:21:16 UTC] PHP Stack trace:
+[12-Jun-2016 01:21:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[12-Jun-2016 01:21:16 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[12-Jun-2016 01:21:16 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[12-Jun-2016 01:21:16 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[12-Jun-2016 01:21:16 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[12-Jun-2016 01:21:16 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[12-Jun-2016 01:21:16 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[12-Jun-2016 01:21:28 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/src/src/Template/Headquarters/edit.ctp on line 14
+[12-Jun-2016 01:21:28 UTC] PHP Stack trace:
+[12-Jun-2016 01:21:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[12-Jun-2016 01:21:28 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[12-Jun-2016 01:21:28 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[12-Jun-2016 01:21:28 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[12-Jun-2016 01:21:28 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[12-Jun-2016 01:21:28 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[12-Jun-2016 01:21:28 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[12-Jun-2016 01:23:15 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/src/src/Template/Headquarters/edit.ctp on line 13
+[12-Jun-2016 01:23:15 UTC] PHP Stack trace:
+[12-Jun-2016 01:23:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[12-Jun-2016 01:23:15 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[12-Jun-2016 01:23:15 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[12-Jun-2016 01:23:15 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[12-Jun-2016 01:23:15 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[12-Jun-2016 01:23:15 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[12-Jun-2016 01:23:15 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[13-Jun-2016 15:12:42 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/ubuntu/workspace/src/src/Controller/RestaurantsController.php on line 54
+[13-Jun-2016 15:12:42 UTC] PHP Stack trace:
+[13-Jun-2016 15:12:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:12:42 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:12:42 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:12:42 UTC] PHP   4. Cake\Controller\Controller->invokeAction() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:114
+[13-Jun-2016 15:12:42 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429}() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:12:42 UTC] PHP   6. App\Controller\RestaurantsController->add() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:13:40 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/ubuntu/workspace/src/src/Controller/RestaurantsController.php on line 54
+[13-Jun-2016 15:13:40 UTC] PHP Stack trace:
+[13-Jun-2016 15:13:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:13:40 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:13:40 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:13:40 UTC] PHP   4. Cake\Controller\Controller->invokeAction() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:114
+[13-Jun-2016 15:13:40 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429}() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:13:40 UTC] PHP   6. App\Controller\RestaurantsController->add() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:15:47 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/ubuntu/workspace/src/src/Controller/RestaurantsController.php on line 54
+[13-Jun-2016 15:15:47 UTC] PHP Stack trace:
+[13-Jun-2016 15:15:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:15:47 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:15:47 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:15:47 UTC] PHP   4. Cake\Controller\Controller->invokeAction() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:114
+[13-Jun-2016 15:15:47 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429}() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:15:47 UTC] PHP   6. App\Controller\RestaurantsController->add() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:24:54 UTC] PHP Fatal error:  Call to a member function newEntity() on a non-object in /home/ubuntu/workspace/src/src/Controller/RestaurantsController.php on line 54
+[13-Jun-2016 15:24:54 UTC] PHP Stack trace:
+[13-Jun-2016 15:24:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:24:54 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:24:54 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:24:54 UTC] PHP   4. Cake\Controller\Controller->invokeAction() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:114
+[13-Jun-2016 15:24:54 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429}() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:24:54 UTC] PHP   6. App\Controller\RestaurantsController->add() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:25:09 UTC] PHP Fatal error:  Call to a member function newEntity() on a non-object in /home/ubuntu/workspace/src/src/Controller/RestaurantsController.php on line 54
+[13-Jun-2016 15:25:09 UTC] PHP Stack trace:
+[13-Jun-2016 15:25:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:25:09 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:25:09 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:25:09 UTC] PHP   4. Cake\Controller\Controller->invokeAction() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:114
+[13-Jun-2016 15:25:09 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429}() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:25:09 UTC] PHP   6. App\Controller\RestaurantsController->add() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 15:39:46 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/src/src/Template/Restaurants/add.ctp on line 58
+[13-Jun-2016 15:39:46 UTC] PHP Stack trace:
+[13-Jun-2016 15:39:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:39:46 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:39:46 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:39:46 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[13-Jun-2016 15:39:46 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[13-Jun-2016 15:39:46 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[13-Jun-2016 15:39:46 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[13-Jun-2016 15:59:54 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/ubuntu/workspace/src/src/Template/Restaurants/add.ctp on line 53
+[13-Jun-2016 15:59:54 UTC] PHP Stack trace:
+[13-Jun-2016 15:59:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 15:59:54 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 15:59:54 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 15:59:54 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[13-Jun-2016 15:59:54 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[13-Jun-2016 15:59:54 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[13-Jun-2016 15:59:54 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[13-Jun-2016 16:15:20 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/src/src/Template/Restaurants/add.ctp on line 59
+[13-Jun-2016 16:15:20 UTC] PHP Stack trace:
+[13-Jun-2016 16:15:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 16:15:20 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 16:15:20 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 16:15:20 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[13-Jun-2016 16:15:20 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[13-Jun-2016 16:15:20 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[13-Jun-2016 16:15:20 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[13-Jun-2016 16:49:56 UTC] PHP Fatal error:  Call to undefined method App\Controller\RestaurantsController::query() in /home/ubuntu/workspace/src/src/Controller/RestaurantsController.php on line 57
+[13-Jun-2016 16:49:56 UTC] PHP Stack trace:
+[13-Jun-2016 16:49:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 16:49:56 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 16:49:56 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 16:49:56 UTC] PHP   4. Cake\Controller\Controller->invokeAction() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:114
+[13-Jun-2016 16:49:56 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429}() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 16:49:56 UTC] PHP   6. App\Controller\RestaurantsController->add() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:429
+[13-Jun-2016 17:13:14 UTC] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /home/ubuntu/workspace/src/src/Template/Restaurants/add.ctp on line 32
+[13-Jun-2016 17:13:14 UTC] PHP Stack trace:
+[13-Jun-2016 17:13:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 17:13:14 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 17:13:14 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 17:13:14 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[13-Jun-2016 17:13:14 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[13-Jun-2016 17:13:14 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[13-Jun-2016 17:13:14 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[13-Jun-2016 17:22:03 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/src/src/Template/Restaurants/add.ctp on line 32
+[13-Jun-2016 17:22:03 UTC] PHP Stack trace:
+[13-Jun-2016 17:22:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 17:22:03 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 17:22:03 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 17:22:03 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[13-Jun-2016 17:22:03 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[13-Jun-2016 17:22:03 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[13-Jun-2016 17:22:03 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952
+[13-Jun-2016 17:40:41 UTC] PHP Parse error:  syntax error, unexpected ''disabled selected'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/ubuntu/workspace/src/src/Template/Restaurants/add.ctp on line 51
+[13-Jun-2016 17:40:41 UTC] PHP Stack trace:
+[13-Jun-2016 17:40:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/src/webroot/index.php:0
+[13-Jun-2016 17:40:41 UTC] PHP   2. Cake\Routing\Dispatcher->dispatch() /home/ubuntu/workspace/src/webroot/index.php:37
+[13-Jun-2016 17:40:41 UTC] PHP   3. Cake\Routing\Dispatcher->_invoke() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:87
+[13-Jun-2016 17:40:41 UTC] PHP   4. Cake\Controller\Controller->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Routing/Dispatcher.php:120
+[13-Jun-2016 17:40:41 UTC] PHP   5. Cake\View\View->render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/Controller/Controller.php:611
+[13-Jun-2016 17:40:41 UTC] PHP   6. Cake\View\View->_render() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:587
+[13-Jun-2016 17:40:41 UTC] PHP   7. Cake\View\View->_evaluate() /home/ubuntu/workspace/src/vendor/cakephp/cakephp/src/View/View.php:952

@@ -1,31 +1,27 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Restaurant'), ['action' => 'edit', $restaurant->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Restaurant'), ['action' => 'delete', $restaurant->id], ['confirm' => __('Are you sure you want to delete # {0}?', $restaurant->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Restaurants'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Restaurant'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Associations'), ['controller' => 'Associations', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Association'), ['controller' => 'Associations', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Menus'), ['controller' => 'Menus', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Menu'), ['controller' => 'Menus', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+<style>    
+#map {
+    width: 90%;
+    height: 400px;
+}
+</style>
+<div class="row text-center">
+    <div class="col-xs-12">
+        <h2>Está viendo la soda </h2><h2><?= h($restaurant->id) ?></h2>
+        <br>
+    </div>
+</div>
 <div class="restaurants view large-9 medium-8 columns content">
-    <h3><?= h($restaurant->id) ?></h3>
-    <table class="vertical-table">
+    <table class="table">
         <tr>
-            <th><?= __('Schedule') ?></th>
+            <th><?= __('Horario') ?></th>
             <td><?= h($restaurant->schedule) ?></td>
         </tr>
         <tr>
-            <th><?= __('Image Name') ?></th>
+            <th><?= __('Imagen') ?></th>
             <td><?= h($restaurant->image_name) ?></td>
         </tr>
         <tr>
-            <th><?= __('Association') ?></th>
+            <th><?= __('Id de la asosiación') ?></th>
             <td><?= $restaurant->has('association') ? $this->Html->link($restaurant->association->name, ['controller' => 'Associations', 'action' => 'view', $restaurant->association->id]) : '' ?></td>
         </tr>
         <tr>
@@ -33,27 +29,30 @@
             <td><?= $this->Number->format($restaurant->id) ?></td>
         </tr>
         <tr>
-            <th><?= __('Card') ?></th>
+            <th><?= __('Aceptan tarjeta') ?></th>
             <td><?= $this->Number->format($restaurant->card) ?></td>
         </tr>
         <tr>
-            <th><?= __('X') ?></th>
+            <th><?= __('Latitud') ?></th>
             <td><?= $this->Number->format($restaurant->x) ?></td>
         </tr>
         <tr>
-            <th><?= __('Y') ?></th>
+            <th><?= __('Longitud') ?></th>
             <td><?= $this->Number->format($restaurant->y) ?></td>
         </tr>
     </table>
+    <div align="center">
+    <div id="map"></div></br>
+    </div></br>
     <div class="related">
-        <h4><?= __('Related Categories') ?></h4>
+        <h4><?= __('Categorías relacionadas') ?></h4>
         <?php if (!empty($restaurant->categories)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
-                <th><?= __('Name') ?></th>
-                <th><?= __('Price') ?></th>
-                <th><?= __('Restaurant Id') ?></th>
+                <th><?= __('Nombre') ?></th>
+                <th><?= __('Precio') ?></th>
+                <th><?= __('Id de Restaurante') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($restaurant->categories as $categories): ?>
@@ -73,15 +72,15 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('Related Menus') ?></h4>
+        <h4><?= __('Menus relacionados') ?></h4>
         <?php if (!empty($restaurant->menus)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th><?= __('Id') ?></th>
-                <th><?= __('Name') ?></th>
-                <th><?= __('Type') ?></th>
-                <th><?= __('Restaurant Id') ?></th>
-                <th><?= __('Schedule') ?></th>
+                <th><?= __('Nombre') ?></th>
+                <th><?= __('Tipo') ?></th>
+                <th><?= __('Id de restaurante') ?></th>
+                <th><?= __('Horario') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($restaurant->menus as $menus): ?>
@@ -102,3 +101,31 @@
         <?php endif; ?>
     </div>
 </div>
+<div id="div_latitud" hidden>
+<?php
+    echo $restaurant->x;
+?>
+</div>
+<div id="div_longitud" hidden>
+<?php
+    echo $restaurant->y;
+?>
+</div>
+<script>
+    var div_latitud = document.getElementById("div_latitud");
+    var latitud = div_latitud.textContent;
+    var div_longitud = document.getElementById("div_longitud");
+    var longitud = div_longitud.textContent;
+    function initMap() {
+    var myLatLng = {lat: parseFloat(latitud), lng: parseFloat(longitud)};
+    var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: myLatLng
+    });
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map
+    });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
