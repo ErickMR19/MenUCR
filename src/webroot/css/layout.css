@@ -16,3 +16,8 @@ ul
     height: 35px;
     margin-left: 5px;
 }
+
+.error-message
+{
+    color:red;
+}

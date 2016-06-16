@@ -17,12 +17,14 @@
 
     <!-- Custom CSS -->
     <?= $this->Html->css('sb-admin.css') ?>
+    <?= $this->Html->css('plugins/morris.css') ?>
+    <?= $this->Html->css('css/font-awesome.css') ?>
+
+
     <?= $this->Html->css('layout.css') ?>
 
-    <!-- Morris Charts CSS -->
-    <?= $this->Html->css('plugins/morris.css') ?>
-    <!-- Custom Fonts -->
-    <?= $this->Html->css('css/font-awesome.min.css') ?>
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -130,6 +132,16 @@
                     </li>
 
                     <li>
+                        <a  data-toggle="collapse" data-target="#associations_id">Asociaciones</a>
+                        <div id="associations_id" class="collapse">
+                            <ul>
+                                <li><?php echo $this->Html->link('Nueva Asociación',['controller'=>'Associations','action'=>'add']);?></li><br>
+                                <li><?php echo $this->Html->link('Administrar Asociaciones',['controller'=>'Associations','action'=>'index']);?></li><br>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
                         <a  data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
                         <div id="headquarters_id" class="collapse">
                             <ul>
@@ -156,10 +168,13 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <?=$this->Html->script('jquery.js') ?>
+    <!-- /#wrapper -->
+    <?=$this->Html->script('plugins/morris/morris.min.js') ?>
+    <?=$this->Html->script('plugins/morris/morris-data.js') ?>
+
     <!-- Bootstrap Core JavaScript -->
 
     <?=$this->Html->script('bootstrap.min.js') ?>
@@ -167,8 +182,7 @@
     <!-- Morris Charts JavaScript -->
 
     <?=$this->Html->script('plugins/morris/raphael.min.js') ?>
-    <?=$this->Html->script('plugins/morris/morris.min.js') ?>
-    <?=$this->Html->script('plugins/morris/morris-data.js') ?>
+
 
 </body>
 
