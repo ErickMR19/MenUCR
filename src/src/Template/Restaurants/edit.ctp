@@ -17,7 +17,7 @@
             echo $this->Form->input('schedule', ['class'=>'form-control', 'label' => 'Horario']);
             echo "<br>";
        ?>
-        <div class="container row">
+        <div>
           <h4>¿Aceptará la soda el pago con tarjetas?</h4>
             <label class="radio-inline">
               <input type="radio" id="radio_si" name="optradio" onclick="document.getElementById('card').value=1;">Sí
