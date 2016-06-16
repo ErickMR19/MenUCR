@@ -48,3 +48,6 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
+<script>
+    document.getElementById('menu_sodas').classList.add('active');
+</script>

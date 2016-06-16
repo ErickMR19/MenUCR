@@ -30,3 +30,6 @@
 
     <?= $this->Form->end() ?>
 
+<script>
+    document.getElementById('menu_categorias').classList.add('active');
+</script>

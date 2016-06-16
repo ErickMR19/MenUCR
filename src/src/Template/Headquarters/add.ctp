@@ -41,4 +41,7 @@
         <br>
     </div>
 </div>
+<script>
+    document.getElementById('menu_sedes').classList.add('active');
+</script>
 <?= $this->Form->end() ?>

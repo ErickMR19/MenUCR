@@ -47,3 +47,7 @@
     </div>
 
 <br>
+
+<script>
+    document.getElementById('menu_categorias').classList.add('active');
+</script>

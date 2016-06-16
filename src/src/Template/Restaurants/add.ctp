@@ -72,3 +72,6 @@
     </div>
 </div>
 <?= $this->Form->end() ?>
+<script>
+    document.getElementById('menu_sodas').classList.add('active');
+</script>

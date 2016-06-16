@@ -37,3 +37,6 @@
 </div>
     <?= $this->Form->end() ?>
 
+<script>
+    document.getElementById('menu_platos').classList.add('active');
+</script>
