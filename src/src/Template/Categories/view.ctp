@@ -65,3 +65,6 @@
         <?php endif; ?>
     </div>
 
+<script>
+    document.getElementById('menu_categorias').classList.add('active');
+</script>

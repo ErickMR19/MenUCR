@@ -4,7 +4,7 @@
     height: 400px;
 }
 </style>
-<script type="text/javascript" src="../../src/webroot/js/sodas.js"></script>
+<?= $this->Html->script('sodas'); ?>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
 <?= $this->Form->create($headquarters) ?>
 <div class="row text-center">
@@ -41,4 +41,7 @@
         <br>
     </div>
 </div>
+<script>
+    document.getElementById('menu_sedes').classList.add('active');
+</script>
 <?= $this->Form->end() ?>

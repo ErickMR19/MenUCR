@@ -31,3 +31,6 @@
         </tr>
     </table>
 
+<script>
+    document.getElementById('menu_platos').classList.add('active');
+</script>

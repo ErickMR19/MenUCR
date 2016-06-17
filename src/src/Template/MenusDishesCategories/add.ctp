@@ -33,4 +33,8 @@
     <?= $this->Form->end() ?>
 
     <br>
+    
+<script>
+    document.getElementById('menu_menus').classList.add('active');
+</script>
 

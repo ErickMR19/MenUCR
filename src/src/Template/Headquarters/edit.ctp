@@ -4,8 +4,7 @@
     height: 400px;
 }
 </style>
-<script type="text/javascript" src="../../../src/webroot/js/sodas.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
+<?= $this->Html->script('sodas'); ?>
 <div class="row text-center">
     <div class="col-xs-12">
         <h2>Editar sede</h2>
@@ -26,12 +25,13 @@
         </div></br>
         </div></br>
         <?php
-            echo $this->Form->input('x', ['class'=>'form-control', 'label' => 'Latitud']);
+            echo $this->Form->input('x', ['class'=>'form-control', 'label' => 'Latitud', 'disabled'=>'true']);
             echo "<br>";
-            echo $this->Form->input('y', ['class'=>'form-control', 'label' => 'Longitud']);
+            echo $this->Form->input('y', ['class'=>'form-control', 'label' => 'Longitud', 'disabled'=>'true']);
             echo "<br>";
         ?>
     </fieldset>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMapEdit" async defer></script>
 <div class="row text-center">
     <div class="col-xs-12">
        <?= $this->Form->button(__('Editar'),['class'=>'btn btn-primary']) ?>
@@ -41,3 +41,6 @@
 </div>
     <?= $this->Form->end() ?>
 </div>
+<script>
+    document.getElementById('menu_sedes').classList.add('active');
+</script>

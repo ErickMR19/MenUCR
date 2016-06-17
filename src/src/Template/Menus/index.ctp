@@ -54,3 +54,7 @@
 </div>
 
 <br>
+
+<script>
+    document.getElementById('menu_tipo_menus').classList.add('active');
+</script>

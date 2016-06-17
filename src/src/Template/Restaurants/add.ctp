@@ -4,7 +4,7 @@
     height: 400px;
 }
 </style>
-<script type="text/javascript" src="../../src/webroot/js/sodas.js"></script>
+<?= $this->Html->script('sodas'); ?>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
 <?= $this->Form->create($restaurant) ?>
 <div class="row text-center">
@@ -21,7 +21,7 @@
                     echo $this->Form->input('schedule', ['class'=>'form-control','placeholder'=>'Horario','label'=>false]);
                     echo "<br>";
                 ?>
-                <div class="container row">
+                <div>
                   <h4>¿Aceptará la soda el pago con tarjetas?</h4>
                     <label class="radio-inline">
                       <input type="radio" name="optradio" onclick="document.getElementById('card').value=1;">Sí
@@ -72,3 +72,6 @@
     </div>
 </div>
 <?= $this->Form->end() ?>
+<script>
+    document.getElementById('menu_sodas').classList.add('active');
+</script>

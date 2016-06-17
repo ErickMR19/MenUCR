@@ -128,4 +128,7 @@
     });
     }
 </script>
+<script>
+    document.getElementById('menu_sodas').classList.add('active');
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>

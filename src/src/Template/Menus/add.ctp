@@ -35,3 +35,6 @@
 
 <?= $this->Form->end() ?>
 
+<script>
+    document.getElementById('menu_tipo_menus').classList.add('active');
+</script>

@@ -49,3 +49,6 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 <br>
+<script>
+    document.getElementById('menu_menus').classList.add('active');
+</script>

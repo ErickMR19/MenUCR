@@ -64,17 +64,11 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i>Ver perfil</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i>Cerrar sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -82,7 +76,7 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li id="menu_tipo_menus">
                         <a  data-toggle="collapse" data-target="#menu_id">Tipos de Menú</a>
                         <div id="menu_id" class="collapse">
                             <ul>
@@ -91,7 +85,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li>
+                    <li id="menu_platos">
                         <a  data-toggle="collapse" data-target="#dishes_id">Platillos</a>
                         <div id="dishes_id" class="collapse">
                             <ul>
@@ -100,7 +94,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li>
+                    <li id="menu_categorias">
                         <a  data-toggle="collapse" data-target="#categories_id">Tipos de Platillos</a>
                         <div id="categories_id" class="collapse">
                             <ul>
@@ -110,7 +104,7 @@
                         </div>
                     </li>
 
-                    <li>
+                    <li id="menu_menus">
                         <a  data-toggle="collapse" data-target="#menus_id">Menús</a>
                         <div id="menus_id" class="collapse">
                             <ul>
@@ -120,7 +114,7 @@
                         </div>
                     </li>
 
-                    <li>
+                    <li id="menu_sodas">
                         <a  data-toggle="collapse" data-target="#restaurants_id">Sodas</a>
                         <div id="restaurants_id" class="collapse">
 
@@ -141,7 +135,7 @@
                         </div>
                     </li>
 
-                    <li>
+                    <li id="menu_sedes">
                         <a  data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
                         <div id="headquarters_id" class="collapse">
                             <ul>
