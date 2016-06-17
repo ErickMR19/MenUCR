@@ -91,4 +91,6 @@
         </table>
         <?php endif; ?>
     </div>
-
+<script>
+    document.getElementById('menu_associations').classList.add('active');
+</script>

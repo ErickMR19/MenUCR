@@ -1,0 +1,1 @@
+<h2>Bienvenido <?= "{$this->request->session()->read('Auth.User.name')} {$this->request->session()->read('Auth.User.apellido1')}" ?> </h2>

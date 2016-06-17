@@ -41,7 +41,11 @@
 </head>
 
 <body>
-
+    <?php 
+        $name = $this->request->session()->read('Auth.User.name');
+        $idUser = $this->request->session()->read('Auth.User.id');    
+        $isAdmin = $this->request->session()->read('Auth.User.role') === 'admin';
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -61,14 +65,16 @@
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$name?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i>Ver perfil</a>
+                            <?= $this->Html->link('<i class="fa fa-fw fa-user"></i>Modificar perfil',['controller'=>'Users','action'=>'edit', $idUser],
+    ['escape' => false]);?>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i>Cerrar sesión</a>
+                            <?= $this->Html->link('<i class="fa fa-fw fa-power-off"></i>Cerrar sesión',['controller'=>'Users','action'=>'logout'],
+    ['escape' => false]);?>
                         </li>
                     </ul>
                 </li>
@@ -113,7 +119,7 @@
                             </ul>
                         </div>
                     </li>
-
+                    <?php if ($isAdmin): ?>
                     <li id="menu_sodas">
                         <a  data-toggle="collapse" data-target="#restaurants_id">Sodas</a>
                         <div id="restaurants_id" class="collapse">
@@ -125,7 +131,7 @@
                         </div>
                     </li>
 
-                    <li>
+                    <li id="menu_associations">
                         <a  data-toggle="collapse" data-target="#associations_id">Asociaciones</a>
                         <div id="associations_id" class="collapse">
                             <ul>
@@ -136,21 +142,32 @@
                     </li>
 
                     <li id="menu_sedes">
-                        <a  data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
-                        <div id="headquarters_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nueva Sede',['controller'=>'Headquarters','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Sedes',['controller'=>'Headquarters','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                            <a data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
+                            <div id="headquarters_id" class="collapse">
+                                <ul>
+                                    <li><?php echo $this->Html->link('Nueva Sede',['controller'=>'Headquarters','action'=>'add']);?></li>
+                                    <li><?php echo $this->Html->link('Administrar Sedes',['controller'=>'Headquarters','action'=>'index']);?></li>
+                                </ul>
+                            </div>
                     </li>
+
+                    <li id="menu_users">
+                            <a data-toggle="collapse" data-target="#users_id">Usuarios</a>
+                            <div id="users_id" class="collapse">
+                            <ul>
+                                <li><?php echo $this->Html->link('Nuevo Usuario',['controller'=>'Users','action'=>'add']);?></li>
+                                <li><?php echo $this->Html->link('Administrar Usuarios',['controller'=>'Users','action'=>'index']);?></li>
+                            </ul>
+                            </div>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
 
         <div id="page-wrapper">
-
+            <?php $this->Flash->render() ?>
             <div class="container-fluid">
 
                 <?= $this->fetch('content') ?>

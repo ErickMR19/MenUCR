@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -11,6 +12,13 @@ use Cake\ORM\TableRegistry;
  */
 class RestaurantsController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->config('authError', ':(');
+        $this->Auth->allow(['index','view']);
+    }
+    
     /**
      * Index method
      *

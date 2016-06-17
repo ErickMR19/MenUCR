@@ -43,6 +43,19 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'welcome'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ]
+        ]);
     }
 
     /**
@@ -58,5 +71,16 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+    
+    public function isAuthorized($user)
+    {
+        // El usuario con rol administrador puede entrar a cualquier sección
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Por defecto se deniega el acceso
+        return false;
     }
 }

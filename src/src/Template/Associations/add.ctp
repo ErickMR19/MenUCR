@@ -30,4 +30,7 @@
     </div>
 
     <?= $this->Form->end() ?>
+<script>
+    document.getElementById('menu_associations').classList.add('active');
+</script>
 
