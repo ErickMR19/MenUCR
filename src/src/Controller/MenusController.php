@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Menus Controller
@@ -10,6 +11,12 @@ use App\Controller\AppController;
  */
 class MenusController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->config('authError', ':(');
+        $this->Auth->allow(['index','view']);
+    }
 
     /**
      * Index method
@@ -54,11 +61,18 @@ class MenusController extends AppController
         $menu = $this->Menus->newEntity();
         if ($this->request->is('post')) {
             $menu = $this->Menus->patchEntity($menu, $this->request->data);
-            if ($this->Menus->save($menu)) {
-                $this->Flash->success(__('The menu has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The menu could not be saved. Please, try again.'));
+            $restaurants = $this->loadmodel('Restaurants');
+            if(  $this->Auth->user('role') === 'admin' or$restaurants->get($menu['restaurant_id'])['association_id'] == $this->Auth->user('association_id') )
+            {
+                if ($this->Menus->save($menu)) {
+                    $this->Flash->success(__('The menu has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The menu could not be saved. Please, try again.'));
+                }
+            }
+            else{
+                    $this->Flash->error(__('No cuenta con los permisos.'));
             }
         }
         $restaurants = $this->Menus->Restaurants->find('list', ['limit' => 200]);
@@ -109,5 +123,12 @@ class MenusController extends AppController
             $this->Flash->error(__('The menu could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    
+    public function isAuthorized($user)
+    {
+        return true;
+        
+        return parent::isAuthorized($user);
     }
 }
