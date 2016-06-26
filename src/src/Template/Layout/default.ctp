@@ -68,6 +68,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$name?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
+                            <?= $this->Html->link('<i class="fa fa-fw fa-key"></i>Cambiar contraseña',['controller'=>'Users','action'=>'changePassword'],
+    ['escape' => false, 'style'=>'white-space: nowrap;']);?>
+                        </li>
+                        <li>
                             <?= $this->Html->link('<i class="fa fa-fw fa-user"></i>Modificar perfil',['controller'=>'Users','action'=>'edit', $idUser],
     ['escape' => false]);?>
                         </li>
