@@ -12,12 +12,10 @@
     <title>Administración</title>
 
     <!-- Bootstrap Core CSS -->
-
     <?= $this->Html->css('bootstrap.min.css') ?>
 
     <!-- Custom CSS -->
     <?= $this->Html->css('sb-admin.css') ?>
-    <?= $this->Html->css('plugins/morris.css') ?>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 
@@ -88,81 +86,64 @@
                 <ul class="nav navbar-nav side-nav">
                     <li id="menu_tipo_menus">
                         <a  data-toggle="collapse" data-target="#menu_id">Tipos de Menú</a>
-                        <div id="menu_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nuevo Tipo Menú',['controller'=>'Menus','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Tipos Menús',['controller'=>'Menus','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                        <ul id="menu_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nuevo Tipo Menú',['controller'=>'Menus','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Tipos Menús',['controller'=>'Menus','action'=>'index']);?></li>
+                        </ul>
                     </li>
                     <li id="menu_platos">
                         <a  data-toggle="collapse" data-target="#dishes_id">Platillos</a>
-                        <div id="dishes_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nuevo Platillo',['controller'=>'Dishes','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Platillos',['controller'=>'Dishes','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                        <ul id="dishes_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nuevo Platillo',['controller'=>'Dishes','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Platillos',['controller'=>'Dishes','action'=>'index']);?></li>
+                        </ul>
                     </li>
                     <li id="menu_categorias">
                         <a  data-toggle="collapse" data-target="#categories_id">Tipos de Platillos</a>
-                        <div id="categories_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nuevo Tipo',['controller'=>'Categories','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Tipos',['controller'=>'Categories','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                        <ul id="categories_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nuevo Tipo',['controller'=>'Categories','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Tipos',['controller'=>'Categories','action'=>'index']);?></li>
+                        </ul>
                     </li>
 
                     <li id="menu_menus">
                         <a  data-toggle="collapse" data-target="#menus_id">Menús</a>
-                        <div id="menus_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nuevo Menú',['controller'=>'MenusDishesCategories','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Menús',['controller'=>'MenusDishesCategories','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                        <ul id="menus_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nuevo Menú',['controller'=>'MenusDishesCategories','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Menús',['controller'=>'MenusDishesCategories','action'=>'index']);?></li>
+                        </ul>
                     </li>
                     <?php if ($isAdmin): ?>
                     <li id="menu_sodas">
                         <a  data-toggle="collapse" data-target="#restaurants_id">Sodas</a>
-                        <div id="restaurants_id" class="collapse">
-
-                            <ul>
-                                <li><?php echo $this->Html->link('Nueva Soda',['controller'=>'Restaurants','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Sodas',['controller'=>'Restaurants','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                        <ul id="restaurants_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nueva Soda',['controller'=>'Restaurants','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Sodas',['controller'=>'Restaurants','action'=>'index']);?></li>
+                        </ul>
                     </li>
 
                     <li id="menu_associations">
                         <a  data-toggle="collapse" data-target="#associations_id">Asociaciones</a>
-                        <div id="associations_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nueva Asociación',['controller'=>'Associations','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Asociaciones',['controller'=>'Associations','action'=>'index']);?></li>
-                            </ul>
-                        </div>
+                        <ul id="associations_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nueva Asociación',['controller'=>'Associations','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Asociaciones',['controller'=>'Associations','action'=>'index']);?></li>
+                        </ul>
                     </li>
 
                     <li id="menu_sedes">
                             <a data-toggle="collapse" data-target="#headquarters_id">Sedes</a>
-                            <div id="headquarters_id" class="collapse">
-                                <ul>
-                                    <li><?php echo $this->Html->link('Nueva Sede',['controller'=>'Headquarters','action'=>'add']);?></li>
-                                    <li><?php echo $this->Html->link('Administrar Sedes',['controller'=>'Headquarters','action'=>'index']);?></li>
-                                </ul>
-                            </div>
+                            <ul id="headquarters_id" class="collapse">
+                                <li><?php echo $this->Html->link('Nueva Sede',['controller'=>'Headquarters','action'=>'add']);?></li>
+                                <li><?php echo $this->Html->link('Administrar Sedes',['controller'=>'Headquarters','action'=>'index']);?></li>
+                            </ul>
                     </li>
 
                     <li id="menu_users">
-                            <a data-toggle="collapse" data-target="#users_id">Usuarios</a>
-                            <div id="users_id" class="collapse">
-                            <ul>
-                                <li><?php echo $this->Html->link('Nuevo Usuario',['controller'=>'Users','action'=>'add']);?></li>
-                                <li><?php echo $this->Html->link('Administrar Usuarios',['controller'=>'Users','action'=>'index']);?></li>
-                            </ul>
-                            </div>
+                        <a data-toggle="collapse" data-target="#users_id">Usuarios</a>
+                        <ul id="users_id" class="collapse">
+                            <li><?php echo $this->Html->link('Nuevo Usuario',['controller'=>'Users','action'=>'add']);?></li>
+                            <li><?php echo $this->Html->link('Administrar Usuarios',['controller'=>'Users','action'=>'index']);?></li>
+                        </ul>
                     </li>
                     <?php endif; ?>
                 </ul>
@@ -183,21 +164,13 @@
         <!-- /#page-wrapper -->
 
     </div>
-
+    <!-- /#wrapper -->
+    
     <!-- jQuery -->
     <?=$this->Html->script('jquery.js') ?>
-    <!-- /#wrapper -->
-    <?=$this->Html->script('plugins/morris/morris.min.js') ?>
-    <?=$this->Html->script('plugins/morris/morris-data.js') ?>
 
     <!-- Bootstrap Core JavaScript -->
-
     <?=$this->Html->script('bootstrap.min.js') ?>
-
-    <!-- Morris Charts JavaScript -->
-
-    <?=$this->Html->script('plugins/morris/raphael.min.js') ?>
-
 
 </body>
 
