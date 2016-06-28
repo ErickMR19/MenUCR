@@ -54,7 +54,11 @@ class AppController extends Controller
                 'controller' => 'Pages',
                 'action' => 'display',
                 'home'
-            ]
+            ],
+            'flash' => [
+                'element' => 'error'
+            ],
+            'authError'=>'No tiene permisos para acceder a esa sección'
         ]);
     }
 

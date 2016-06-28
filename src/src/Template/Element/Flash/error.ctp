@@ -1,1 +1,4 @@
-<div class="message error" onclick="this.classList.add('hidden');"><?= h($message) ?></div>
+<div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <?= h($message) ?>
+</div>

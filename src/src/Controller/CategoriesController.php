@@ -14,7 +14,6 @@ class CategoriesController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->config('authError', ':(');
         $this->Auth->allow(['index','view']);
     }
 
