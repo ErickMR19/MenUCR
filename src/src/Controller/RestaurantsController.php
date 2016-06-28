@@ -16,7 +16,7 @@ class RestaurantsController extends AppController
     {
         parent::beforeFilter($event);
         $this->Auth->config('authError', ':(');
-        $this->Auth->allow(['index','view']);
+        $this->Auth->allow(['index','view', 'edit', 'add']);
     }
     
     /**
@@ -64,13 +64,16 @@ class RestaurantsController extends AppController
         $sedes = TableRegistry::get('Headquarters')->find();
         $restaurant = $this->Restaurants->newEntity();
         if ($this->request->is('post')) {
+            
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
             if ($this->Restaurants->save($restaurant)) {
                 $this->Flash->success(__('The restaurant has been saved.'));
-                return $this->redirect(['action' => 'index']);
+               // return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
             }
+            
+            debug($this->request->data);
         }
         $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
         $this->set(compact('restaurant', 'associations', 'sedes'));
@@ -99,7 +102,7 @@ class RestaurantsController extends AppController
                 $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
             }
         }
-        $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
+        $associations = $this->Restaurants->Associations->find('list');
         $this->set(compact('restaurant', 'associations', 'sedes'));
         $this->set('_serialize', ['restaurant']);
     }

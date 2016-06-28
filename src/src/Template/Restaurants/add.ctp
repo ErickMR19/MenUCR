@@ -18,6 +18,9 @@
     <div class="col-xs-12">
         <div class="form-group">
                 <?php
+                    debug($restaurant);
+                    echo $this->Form->input('name', ['class'=>'form-control','placeholder'=>'Nombre','label'=>false]);
+                    echo "<br>";
                     echo $this->Form->input('schedule', ['class'=>'form-control','placeholder'=>'Horario','label'=>false]);
                     echo "<br>";
                 ?>
