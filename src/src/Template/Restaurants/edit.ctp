@@ -6,7 +6,7 @@
 </style>
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2>Editar soda</h2>
+        <h2>Está editando la soda: <?= h($restaurant->name) ?></h2>
         <br>
     </div>
 </div>
@@ -14,6 +14,8 @@
     <?= $this->Form->create($restaurant) ?>
     <fieldset>
         <?php
+            echo $this->Form->input('name', ['class'=>'form-control','label' => 'Nombre']);
+            echo "<br>";
             echo $this->Form->input('schedule', ['class'=>'form-control', 'label' => 'Horario']);
             echo "<br>";
        ?>
@@ -44,9 +46,10 @@
         <?php echo "<br>"; ?>        
         <div align="center">
         <div id="map"></div></br>
+        <!--
         <div>
         <button type="button" class="btn btn-warning" onclick="actualizar_coordenadas();">Actualizar coordenadas</button>
-        </div></br>
+        </div></br>-->
         </div></br>
         <?php
             echo $this->Form->input('x', ['class'=>'form-control', 'label' => 'Latitud']);
@@ -92,7 +95,9 @@
     var latitud = div_latitud.textContent;
     var div_longitud = document.getElementById("div_longitud");
     var longitud = div_longitud.textContent;
-    var myLatLng; var map; var marker;
+    
+    var myLatLng; var map; var marker=0;
+    
     function initMap() {
     myLatLng = {lat: parseFloat(latitud), lng: parseFloat(longitud)};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -104,7 +109,12 @@
     map: map,
     draggable:true
     });
+    google.maps.event.addListener(marker, 'dragend', function (ev) {
+        document.getElementById('x').value = marker.getPosition().lat();
+        document.getElementById('y').value = marker.getPosition().lng();
+    });
     }
+    
     function actualizar_mapa(lati, lon) {
     myLatLng = {lat: lati, lng: lon};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -116,11 +126,18 @@
     map: map,
     draggable:true
     });
+    google.maps.event.addListener(marker, 'dragend', function (ev) {
+        document.getElementById('x').value = marker.position.lat();
+        document.getElementById('y').value = marker.position.lng();
+    });
+    actualizar_coordenadas();
     }
+    
     function actualizar_coordenadas(){
 	document.getElementById('x').value = marker.position.lat();
     document.getElementById('y').value = marker.position.lng();
     }
+    
     var tarjeta = document.getElementById("tarjeta").textContent;
     if (tarjeta > 0){
         document.getElementById('radio_si').checked = true;

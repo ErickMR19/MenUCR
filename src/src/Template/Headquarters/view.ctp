@@ -6,7 +6,7 @@
 </style>
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2>Está viendo la sede </h2><h2><?= h($headquarters->name) ?></h2>
+        <h2>Está viendo la sede: <?= h($headquarters->name) ?></h2>
         <br>
     </div>
 </div>

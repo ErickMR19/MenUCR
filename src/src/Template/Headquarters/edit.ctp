@@ -7,7 +7,7 @@
 <?= $this->Html->script('sodas'); ?>
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2>Editar sede</h2>
+        <h2>Está editando la sede: <?= h($headquarters->name) ?></h2>
         <br>
     </div>
 </div>

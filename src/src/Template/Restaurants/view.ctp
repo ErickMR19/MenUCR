@@ -6,12 +6,16 @@
 </style>
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2>Está viendo la soda </h2><h2><?= h($restaurant->id) ?></h2>
+        <h2>Está viendo la soda: <?= h($restaurant->name) ?></h2>
         <br>
     </div>
 </div>
 <div class="restaurants view large-9 medium-8 columns content">
     <table class="table">
+        <tr>
+            <th><?= __('Nombre') ?></th>
+            <td><?= h($restaurant->name) ?></td>
+        </tr>
         <tr>
             <th><?= __('Horario') ?></th>
             <td><?= h($restaurant->schedule) ?></td>

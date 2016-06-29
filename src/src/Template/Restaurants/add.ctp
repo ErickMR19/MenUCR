@@ -4,7 +4,8 @@
     height: 400px;
 }
 </style>
-<?= $this->Html->script('sodas'); ?>
+
+<script type="text/javascript" src="../../src/webroot/js/sodas.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
 <?= $this->Form->create($restaurant) ?>
 <div class="row text-center">
@@ -18,7 +19,7 @@
     <div class="col-xs-12">
         <div class="form-group">
                 <?php
-                    debug($restaurant);
+                    //debug($restaurant);
                     echo $this->Form->input('name', ['class'=>'form-control','placeholder'=>'Nombre','label'=>false]);
                     echo "<br>";
                     echo $this->Form->input('schedule', ['class'=>'form-control','placeholder'=>'Horario','label'=>false]);
@@ -51,9 +52,10 @@
                 <?php echo "<br>"; ?>
                 <div align="center">
                 <div id="map"></div></br>
+                <!--
                 <div>
                 <button type="button" class="btn btn-warning" onclick="actualizar_coordenadas();">Actualizar coordenadas</button>
-                </div></br>
+                </div></br>-->
                 </div></br>
                 <?php
                     echo $this->Form->input('x', ['class'=>'form-control','placeholder'=>'Latitud','label'=>false]);

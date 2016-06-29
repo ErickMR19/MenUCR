@@ -65,4 +65,10 @@ function actualizar_mapa(lati, lon) {
         map: map,
         draggable: true
     });
+   
+    google.maps.event.addListener(marker, 'dragend', function (ev) {
+        document.getElementById('x').value = marker.position.lat();
+        document.getElementById('y').value = marker.position.lng();
+    });
+    actualizar_coordenadas();
 }

@@ -67,12 +67,12 @@ class RestaurantsController extends AppController
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
             if ($this->Restaurants->save($restaurant)) {
                 $this->Flash->success(__('The restaurant has been saved.'));
-               // return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
             }
             
-            debug($this->request->data);
+            //debug($this->request->data);
         }
         $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
         $this->set(compact('restaurant', 'associations', 'sedes'));

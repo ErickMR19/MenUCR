@@ -9,7 +9,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('Nombre') ?></th>
                 <th><?= $this->Paginator->sort('Horario') ?></th>
                 <th><?= $this->Paginator->sort('Aceptan tarjeta') ?></th>
                 <th><?= $this->Paginator->sort('Latitud') ?></th>
@@ -22,7 +22,7 @@
         <tbody>
             <?php foreach ($restaurants as $restaurant): ?>
             <tr>
-                <td><?= $this->Number->format($restaurant->id) ?></td>
+                <td><?= h($restaurant->name) ?></td>
                 <td><?= h($restaurant->schedule) ?></td>
                 <td><?= $this->Number->format($restaurant->card) ?></td>
                 <td><?= $this->Number->format($restaurant->x) ?></td>
