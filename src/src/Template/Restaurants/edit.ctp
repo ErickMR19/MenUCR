@@ -11,9 +11,10 @@
     </div>
 </div>
 <div class="restaurants form large-9 medium-8 columns content">
-    <?= $this->Form->create($restaurant) ?>
+    <?= $this->Form->create($restaurant, ['enctype' => 'multipart/form-data']) ?>
     <fieldset>
         <?php
+            echo $this->Form->input('id', ['class'=>'form-control','label' => 'Nombre', 'type'=>'hidden']);
             echo $this->Form->input('name', ['class'=>'form-control','label' => 'Nombre']);
             echo "<br>";
             echo $this->Form->input('schedule', ['class'=>'form-control', 'label' => 'Horario']);
@@ -46,17 +47,21 @@
         <?php echo "<br>"; ?>        
         <div align="center">
         <div id="map"></div></br>
-        <!--
-        <div>
-        <button type="button" class="btn btn-warning" onclick="actualizar_coordenadas();">Actualizar coordenadas</button>
-        </div></br>-->
         </div></br>
         <?php
             echo $this->Form->input('x', ['class'=>'form-control', 'label' => 'Latitud']);
             echo "<br>";
             echo $this->Form->input('y', ['class'=>'form-control', 'label' => 'Longitud']);
             echo "<br>";
-            echo $this->Form->input('image_name', ['class'=>'form-control', 'label' => 'Imagen']);
+        ?>
+        <h4>Imagen actual de esta soda</h4>
+        <div class="row text-center" id="img_soda">
+            <?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('width' => '200px','alt'=>'Esta soda no tiene imagen aún'));  ?>
+        </div>
+        <h4>Cambia la imagen de esta soda</h4>
+        <?php
+            echo $this->Form->input('imagen_seleccionada', ['class'=>'form-control', 'type' => 'file', 'label'=>false]);
+            echo $this->Form->input('image_name', ['type' => 'hidden']);
             echo "<br>";
             echo $this->Form->input('association_id', ['class'=>'form-control', 'label' => 'Id de asociación','options' => $associations, 'empty' => true]);
             echo "<br>";

@@ -7,7 +7,7 @@
 
 <script type="text/javascript" src="../../src/webroot/js/sodas.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
-<?= $this->Form->create($restaurant) ?>
+<?= $this->Form->create($restaurant, ['enctype' => 'multipart/form-data']) ?>
 <div class="row text-center">
     <div class="col-xs-12">
         <h2>Agregar nueva soda</h2>
@@ -19,7 +19,6 @@
     <div class="col-xs-12">
         <div class="form-group">
                 <?php
-                    //debug($restaurant);
                     echo $this->Form->input('name', ['class'=>'form-control','placeholder'=>'Nombre','label'=>false]);
                     echo "<br>";
                     echo $this->Form->input('schedule', ['class'=>'form-control','placeholder'=>'Horario','label'=>false]);
@@ -52,17 +51,16 @@
                 <?php echo "<br>"; ?>
                 <div align="center">
                 <div id="map"></div></br>
-                <!--
-                <div>
-                <button type="button" class="btn btn-warning" onclick="actualizar_coordenadas();">Actualizar coordenadas</button>
-                </div></br>-->
                 </div></br>
                 <?php
                     echo $this->Form->input('x', ['class'=>'form-control','placeholder'=>'Latitud','label'=>false]);
                     echo "<br>";
                     echo $this->Form->input('y', ['class'=>'form-control','placeholder'=>'Longitud','label'=>false]);
                     echo "<br>";
-                    echo $this->Form->input('image_name', ['class'=>'form-control','placeholder'=>'Nombre de la imagen','label'=>false]);
+                ?>
+                <h4>Sube una imagen para la soda</h4>
+                <?php
+                    echo $this->Form->input('imagen_seleccionada', ['class'=>'form-control', 'type' => 'file', 'label'=>false]);
                     echo "<br>";
                     echo $this->Form->input('association_id', ['options' => $associations, 'empty' => true, 'class'=>'form-control', 'empty'=>'Asociación','label'=>false]);
                 ?>

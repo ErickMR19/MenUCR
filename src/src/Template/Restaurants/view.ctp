@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <th><?= __('Imagen') ?></th>
-            <td><?= h($restaurant->image_name) ?></td>
+            <td><?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('width' => '200px','alt'=>'Esta soda no tiene imagen aún'));  ?></td>
         </tr>
         <tr>
             <th><?= __('Id de la asosiación') ?></th>
