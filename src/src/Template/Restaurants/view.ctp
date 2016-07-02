@@ -34,7 +34,15 @@
         </tr>
         <tr>
             <th><?= __('Aceptan tarjeta') ?></th>
-            <td><?= $this->Number->format($restaurant->card) ?></td>
+            <td>
+                <?php 
+                if ($this->Number->format($restaurant->card)==1) {
+                    echo "sí";
+                } else {
+                    echo "no";
+                }
+                ?>
+            </td>
         </tr>
         <tr>
             <th><?= __('Latitud') ?></th>
