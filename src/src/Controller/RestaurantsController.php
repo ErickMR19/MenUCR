@@ -162,8 +162,13 @@ class RestaurantsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $restaurant = $this->Restaurants->get($id);
+        $nombre_imagen_anterior = $restaurant->image_name;
         if ($this->Restaurants->delete($restaurant)) {
             $this->Flash->success(__('The restaurant has been deleted.'));
+            //Se borra la imagen del folder de imagenes-restaurantes
+             if (file_exists(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior)) {
+                 unlink(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior);
+             }
         } else {
             $this->Flash->error(__('The restaurant could not be deleted. Please, try again.'));
         }
