@@ -22,8 +22,10 @@
         </tr>
         <tr>
             <th><?= __('Imagen') ?></th>
-            <td><?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('width' => '200px','alt'=>'Esta soda no tiene imagen aún'));  ?></td>
         </tr>
+    </table>
+    <div><?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%', 'alt'=>'Esta soda no tiene imagen aún'));  ?></div>
+    <table class="table">
         <tr>
             <th><?= __('Id de la asosiación') ?></th>
             <td><?= $restaurant->has('association') ? $this->Html->link($restaurant->association->name, ['controller' => 'Associations', 'action' => 'view', $restaurant->association->id]) : '' ?></td>

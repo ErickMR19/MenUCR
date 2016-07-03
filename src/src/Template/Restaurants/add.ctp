@@ -5,7 +5,7 @@
 }
 </style>
 
-<script type="text/javascript" src="../../src/webroot/js/sodas.js"></script>
+<?= $this->Html->script('sodas'); ?>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" async defer></script>
 <?= $this->Form->create($restaurant, ['enctype' => 'multipart/form-data']) ?>
 <div class="row text-center">

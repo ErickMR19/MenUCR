@@ -58,12 +58,9 @@ class RestaurantsController extends AppController
      */
     public function add()
     {
-        //$sedes = $this->loadModel('Headquarters')->find('list');
-        //$sedes = $this->loadModel('Headquarters')->query("select * from restaurants;");
         $sedes = TableRegistry::get('Headquarters')->find();
         $restaurant = $this->Restaurants->newEntity();
         if ($this->request->is('post')) {
-            
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
             if ($this->Restaurants->save($restaurant)) {
                 $this->Flash->success(__('The restaurant has been saved.'));
@@ -72,26 +69,24 @@ class RestaurantsController extends AppController
                     $file = $this->request->data['imagen_seleccionada']; 
                     $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //obtenemos la extension para ver si es un imagen
                     $arr_ext = array('jpg', 'jpeg', 'gif'); //extensiones validas
-                    //El nombre de las imagenes es [nombre_soda]+[nombre_imagen]
-                    $setNewFileName = $this->request->data['name'] . "_" . $this->request->data['imagen_seleccionada']["name"];//time() . "_" . rand(000000, 999999);
+                    //El siguiente código actualiza el row recién agregado a la bd, poniéndo un nombre para el campo "image_name"
+                    $ultimo = $this->Restaurants->find('all')->last();
+                    $sodas_upadate = TableRegistry::get('Restaurants');
+                    $sodas_select = $sodas_upadate->get($ultimo->id); 
+                    //El nombre de las imagenes es [id_soda]+[nombre_soda]+[nombre_imagen]
+                    $setNewFileName = $sodas_select['id'] . "_" . $this->request->data['name'] . "_" . $this->request->data['imagen_seleccionada']["name"];
+                    $sodas_select->image_name = $setNewFileName;
                     //only process if the extension is valid
                     if (in_array($ext, $arr_ext)) {
                         //Colocamos la imagen en el folder adecuado
                         move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/restaurants_pictures/' . $setNewFileName);
-                        //El siguiente código actualiza el row recién agregado a la bd, poniéndo un nombre para el campo "image_name"
-                        $ultimo = $this->Restaurants->find('all')->last();
-                        $sodas_upadate = TableRegistry::get('Restaurants');
-                        $sodas_select = $sodas_upadate->get($ultimo->id); 
-                        $sodas_select->image_name = $setNewFileName;
                         $sodas_upadate->save($sodas_select);
-                        }
+                    }
                 }
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
             }
-            
-            //debug($this->request->data);
         }
         $associations = $this->Restaurants->Associations->find('list');
         $this->set(compact('restaurant', 'associations', 'sedes'));
@@ -124,8 +119,8 @@ class RestaurantsController extends AppController
                     $file = $this->request->data['imagen_seleccionada']; 
                     $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //obtenemos la extension para ver si es un imagen
                     $arr_ext = array('jpg', 'jpeg', 'gif'); //extensiones validas
-                    //El nombre de las imagenes es [nombre_soda]+[nombre_imagen]
-                    $setNewFileName = $this->request->data['name'] . "_" . $this->request->data['imagen_seleccionada']["name"];//time() . "_" . rand(000000, 999999);
+                    //El nombre de las imagenes es [id_soda]+[nombre_soda]+[nombre_imagen]
+                    $setNewFileName = $this->request->data['id'] . "_" . $this->request->data['name'] . "_" . $this->request->data['imagen_seleccionada']["name"];
                     //only process if the extension is valid
                     if (in_array($ext, $arr_ext)) {
                         //Borramos la imagen anterior pues ya no se utilizará

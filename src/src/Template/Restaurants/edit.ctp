@@ -55,8 +55,8 @@
             echo "<br>";
         ?>
         <h4>Imagen actual de esta soda</h4>
-        <div class="row text-center" id="img_soda">
-            <?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('width' => '200px','alt'=>'Esta soda no tiene imagen aún'));  ?>
+        <div class="text-center" id="img_soda">
+            <?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%','alt'=>'Esta soda no tiene imagen aún'));  ?>
         </div>
         <h4>Cambia la imagen de esta soda</h4>
         <?php
