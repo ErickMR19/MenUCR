@@ -124,4 +124,39 @@ class RestaurantsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function getMenus($id = null)
+    {
+        if($id)
+        {
+            $query = $this->Restaurants->Categories->find()
+                ->select(['name', 'type.type', 'type.name','dishe.name', 'price','type.schedule','dishe.description'])
+                ->hydrate(false)
+                ->join([
+                    'type' => [
+                        'table' => 'menus',
+                        'type' => 'INNER',
+                        'conditions' => 'type.restaurant_id = Categories.restaurant_id',
+                    ],
+                    'menu' => [
+                        'table' => 'menus_dishes_categories',
+                        'type' => 'INNER',
+                        'conditions' => 'menu.menu_id = type.id AND menu.category_id = Categories.id',
+                    ],
+                    'dishe' => [
+                        'table' => 'dishes',
+                        'type' => 'INNER',
+                        'conditions' => 'dishe.id = menu.dishe_id',
+                    ]
+                ])
+                ->andWhere(['Categories.restaurant_id'=>$id, 'menu.date'=> "".date("Y-m-d").""])
+                ->order('Categories.name');
+
+
+            $query = $query->toArray();
+
+            $this->set('data', $query);
+        }
+    }
+
 }

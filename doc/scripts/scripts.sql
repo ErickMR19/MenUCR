@@ -87,5 +87,5 @@ CREATE TABLE menus_dishes_categories(
     FOREIGN KEY(menu_id) REFERENCES menus(id),
     FOREIGN KEY(dishe_id) REFERENCES dishes(id),
     FOREIGN KEY(category_id) REFERENCES categories(id),
-    UNIQUE(menu_id,dishe_id,category_id)
+    UNIQUE(menu_id,dishe_id,category_id,date)
 );
