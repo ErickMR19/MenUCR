@@ -67,9 +67,22 @@ class MenusDishesCategoriesController extends AppController
                 $this->Flash->error(__('The menus dishes category could not be saved. Please, try again.'));
             }
         }
-        $menus = $this->MenusDishesCategories->Menus->find('list', ['limit' => 200]);
-        $dishes = $this->MenusDishesCategories->Dishes->find('list', ['limit' => 200]);
-        $categories = $this->MenusDishesCategories->Categories->find('list', ['limit' => 200]);
+        
+        $menus = $this->MenusDishesCategories->Menus->find()
+                                            ->select(['id','type']);
+        
+        $temp = array();
+        
+        foreach ($menus as $key => $value)
+        {
+            $temp[$value->id] = $value->type;
+        }
+
+        $menus = $temp;
+        
+        
+        $dishes = $this->MenusDishesCategories->Dishes->find('list');
+        $categories = $this->MenusDishesCategories->Categories->find('list');
         $this->set(compact('menusDishesCategory', 'menus', 'dishes', 'categories'));
         $this->set('_serialize', ['menusDishesCategory']);
     }
@@ -95,9 +108,22 @@ class MenusDishesCategoriesController extends AppController
                 $this->Flash->error(__('The menus dishes category could not be saved. Please, try again.'));
             }
         }
-        $menus = $this->MenusDishesCategories->Menus->find('list', ['limit' => 200]);
-        $dishes = $this->MenusDishesCategories->Dishes->find('list', ['limit' => 200]);
-        $categories = $this->MenusDishesCategories->Categories->find('list', ['limit' => 200]);
+        
+        $menus = $this->MenusDishesCategories->Menus->find()
+                                            ->select(['id','type']);
+        
+        $temp = array();
+        
+        foreach ($menus as $key => $value)
+        {
+            $temp[$value->id] = $value->type;
+        }
+
+        $menus = $temp;
+        
+        
+        $dishes = $this->MenusDishesCategories->Dishes->find('list');
+        $categories = $this->MenusDishesCategories->Categories->find('list');
         $this->set(compact('menusDishesCategory', 'menus', 'dishes', 'categories'));
         $this->set('_serialize', ['menusDishesCategory']);
     }

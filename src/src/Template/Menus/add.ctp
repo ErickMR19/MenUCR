@@ -11,7 +11,6 @@
     <div class="col-xs-12">
         <div class="form-group">
             <?php
-            echo $this->Form->input('name',['class'=>'form-control','placeholder'=>'Nombre del Menú','label'=>false]);
             echo "<br>";
             echo $this->Form->input('type',['class'=>'form-control','label'=>false,'placeholder'=>'Tipo de menú']);
             echo "<br>";

@@ -13,21 +13,17 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('Nombre') ?></th>
-                    <th><?= $this->Paginator->sort('Tipo de Menú') ?></th>
-                    <th><?= $this->Paginator->sort('Soda a la que pertenece') ?></th>
-                    <th><?= $this->Paginator->sort('Horario') ?></th>
+                    <th><?= $this->Paginator->sort('type',['label'=>'Tipo de Menú']) ?></th>
+                    <th><?= $this->Paginator->sort('restaurant_id',['label'=>'Soda a la que pertenece']) ?></th>
+                    <th><?= $this->Paginator->sort('schedule',['label'=>'Horario']) ?></th>
                     <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($menus as $menu): ?>
                     <tr>
-                        <td><?= $this->Number->format($menu->id) ?></td>
-                        <td><?= h($menu->name) ?></td>
                         <td><?= h($menu->type) ?></td>
-                        <td><?= $menu->has('restaurant') ? $this->Html->link($menu->restaurant->id, ['controller' => 'Restaurants', 'action' => 'view', $menu->restaurant->id]) : '' ?></td>
+                        <td><?= $menu->has('restaurant') ? $this->Html->link($menu->restaurant->name, ['controller' => 'Restaurants', 'action' => 'view', $menu->restaurant->id]) : '' ?></td>
                         <td><?= h($menu->schedule) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('Ver'), ['action' => 'view', $menu->id]) ?>

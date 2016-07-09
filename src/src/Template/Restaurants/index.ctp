@@ -9,11 +9,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('Nombre') ?></th>
-                <th><?= $this->Paginator->sort('Horario') ?></th>
-                <th><?= $this->Paginator->sort('Correo') ?></th>
-                <th><?= $this->Paginator->sort('Aceptan tarjeta') ?></th>
-                <th><?= $this->Paginator->sort('Asociación a cargo') ?></th>
+                <th><?= $this->Paginator->sort('name',['label'=>'Nombre']) ?></th>
+                <th><?= $this->Paginator->sort('schedule',['label'=>'Horario']) ?></th>
+                <th><?= $this->Paginator->sort('email',['label'=>'Correo']) ?></th>
+                <th><?= $this->Paginator->sort('card',['label'=>'Aceptan Tarjetas']) ?></th>
+                <th><?= $this->Paginator->sort('association_id',['label'=>'Asociación a cargo']) ?></th>
                 <th class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>

@@ -67,7 +67,21 @@ class CategoriesController extends AppController
                 $this->Flash->error(__('The category could not be saved. Please, try again.'));
             }
         }
-        $restaurants = $this->Categories->Restaurants->find('list', ['limit' => 200]);
+
+        $restaurants = $this->Categories->Restaurants->find()
+                                    ->select(['id','name']);
+        
+        $temp = array();
+        
+        foreach ($restaurants as $key => $value)
+        {
+            $temp[$value->id] = $value->name;
+        }
+
+        $restaurants = $temp;
+        
+        
+        
         $this->set(compact('category', 'restaurants'));
         $this->set('_serialize', ['category']);
     }
@@ -93,7 +107,18 @@ class CategoriesController extends AppController
                 $this->Flash->error(__('The category could not be saved. Please, try again.'));
             }
         }
-        $restaurants = $this->Categories->Restaurants->find('list', ['limit' => 200]);
+        
+        $restaurants = $this->Categories->Restaurants->find()
+                                    ->select(['id','name']);
+        
+        $temp = array();
+        
+        foreach ($restaurants as $key => $value)
+        {
+            $temp[$value->id] = $value->name;
+        }
+
+        $restaurants = $temp;
         $this->set(compact('category', 'restaurants'));
         $this->set('_serialize', ['category']);
     }

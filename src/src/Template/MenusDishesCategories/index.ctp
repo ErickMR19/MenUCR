@@ -12,18 +12,16 @@
     <table class="table">
         <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('Menú') ?></th>
-            <th><?= $this->Paginator->sort('Platillo') ?></th>
-            <th><?= $this->Paginator->sort('Categoría') ?></th>
-            <th><?= $this->Paginator->sort('Fecha') ?></th>
+            <th><?= $this->Paginator->sort('menu_id',['label'=>'Menú']) ?></th>
+            <th><?= $this->Paginator->sort('dishe_id',['label'=>'Platillo']) ?></th>
+            <th><?= $this->Paginator->sort('category_id',['label'=>'Categoría']) ?></th>
+            <th><?= $this->Paginator->sort('date',['label'=>'Fecha']) ?></th>
             <th class="actions"><?= __('Acciones') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($menusDishesCategories as $menusDishesCategory): ?>
             <tr>
-                <td><?= $this->Number->format($menusDishesCategory->id) ?></td>
                 <td><?= $menusDishesCategory->has('menu') ? $this->Html->link($menusDishesCategory->menu->name, ['controller' => 'Menus', 'action' => 'view', $menusDishesCategory->menu->id]) : '' ?></td>
                 <td><?= $menusDishesCategory->has('dish') ? $this->Html->link($menusDishesCategory->dish->name, ['controller' => 'Dishes', 'action' => 'view', $menusDishesCategory->dish->id]) : '' ?></td>
                 <td><?= $menusDishesCategory->has('category') ? $this->Html->link($menusDishesCategory->category->name, ['controller' => 'Categories', 'action' => 'view', $menusDishesCategory->category->id]) : '' ?></td>

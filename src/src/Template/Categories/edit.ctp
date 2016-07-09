@@ -1,6 +1,4 @@
-
-
-    <?= $this->Form->create($category,['role'=>'form']) ?>
+  <?= $this->Form->create($category,['role'=>'form']) ?>
 
     <div class="row text-center">
         <div class="col-xs-12">
@@ -14,8 +12,7 @@
         echo "<br>";
         echo $this->Form->input('price', ['class'=>'form-control', 'label'=>'Precio']);
         echo "<br>";
-        echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control', 'label'=>false,'empty'=>'Restaurante']);
-        echo "<br>";
+        
         ?>
     </div>
 

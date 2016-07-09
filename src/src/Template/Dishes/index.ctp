@@ -11,16 +11,15 @@
         <table class="table">
             <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('Nombre') ?></th>
-                <th><?= $this->Paginator->sort('Descripción') ?></th>
+
+                <th><?= $this->Paginator->sort('name',['label'=>'Nombre']) ?></th>
+                <th><?= $this->Paginator->sort('description',['label'=>'Descripción']) ?></th>
                 <th class="actions"><?= __('Acciones') ?></th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($dishes as $dish): ?>
                 <tr>
-                    <td><?= $this->Number->format($dish->id) ?></td>
                     <td><?= h($dish->name) ?></td>
                     <td><?= h($dish->description) ?></td>
                     <td class="actions">

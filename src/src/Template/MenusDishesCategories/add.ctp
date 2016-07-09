@@ -11,7 +11,7 @@
 
     <div class="form-group">
         <?php
-        echo $this->Form->input('menu_id', ['options' => $menus, 'class'=>'form-control', 'label'=>false, 'empty'=>'Tipo de menú']);
+        echo $this->Form->input('menu_id', ['options' => $menus, 'class'=>'form-control', 'label'=>false, 'empty'=>'Categoría']);
         echo "<br>";
         echo $this->Form->input('dishe_id', ['options' => $dishes, 'class'=>'form-control', 'empty'=>'Platillo', 'label'=>false]);
         echo "<br>";

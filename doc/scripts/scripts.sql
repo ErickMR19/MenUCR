@@ -64,7 +64,6 @@ CREATE TABLE dishes(
 
 CREATE TABLE menus(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-     name varchar(128) NOT NULL,
      type VARCHAR(128) NOT NULL,
      restaurant_id INT UNSIGNED NOT NULL,
      schedule VARCHAR(128),

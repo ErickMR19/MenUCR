@@ -9,9 +9,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('Nombre') ?></th>
-                <th><?= $this->Paginator->sort('Latitud') ?></th>
-                <th><?= $this->Paginator->sort('Longitud') ?></th>
+                <th><?= $this->Paginator->sort('name',['label'=>'Nombre']) ?></th>
+                <th><?= $this->Paginator->sort('x',['label'=>'Latitud']) ?></th>
+                <th><?= $this->Paginator->sort('y',['label'=>'Longitud']) ?></th>
                 <th class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>

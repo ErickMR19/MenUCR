@@ -18,10 +18,7 @@
             <th><?= __('Categoría') ?></th>
             <td><?= $menusDishesCategory->has('category') ? $this->Html->link($menusDishesCategory->category->name, ['controller' => 'Categories', 'action' => 'view', $menusDishesCategory->category->id]) : '' ?></td>
         </tr>
-        <tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($menusDishesCategory->id) ?></td>
-        </tr>
+
         <tr>
             <th><?= __('Fecha') ?></th>
             <td><?= h($menusDishesCategory->date) ?></td>

@@ -11,17 +11,17 @@
     <table class='table'>
         <thead>
         <tr>
-            <th><?= $this->Paginator->sort('Id') ?></th>
-            <th><?= $this->Paginator->sort('Sigla') ?></th>
-            <th><?= $this->Paginator->sort('Nombre') ?></th>
-            <th><?= $this->Paginator->sort('Sede') ?></th>
+
+            <th><?= $this->Paginator->sort('acronym',['label'=>'Sigla']) ?></th>
+            <th><?= $this->Paginator->sort('name',['label'=>'Nombre']) ?></th>
+            <th><?= $this->Paginator->sort('headquarter_id',['label'=>'Sede']) ?></th>
             <th class="actions"><?= __('Acciones') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($associations as $association): ?>
             <tr>
-                <td><?= $this->Number->format($association->id) ?></td>
+
                 <td><?= h($association->acronym) ?></td>
                 <td><?= h($association->name) ?></td>
                 <td><?= $association->has('headquarters') ? $this->Html->link($association->headquarters->name, ['controller' => 'Headquarters', 'action' => 'view', $association->headquarters->id]) : '' ?></td>

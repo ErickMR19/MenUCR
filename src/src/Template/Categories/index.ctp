@@ -11,20 +11,18 @@
     <table class="table">
         <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('Nombre') ?></th>
-            <th><?= $this->Paginator->sort('Precio') ?></th>
-            <th><?= $this->Paginator->sort('Restaurante Asociado') ?></th>
+            <th><?= $this->Paginator->sort('name',['label'=>'Nombre']) ?></th>
+            <th><?= $this->Paginator->sort('price',['label'=>'Precio']) ?></th>
+            <th><?= $this->Paginator->sort('restaurant_id',['label'=>'Restaurante asociado']) ?></th>
             <th class="actions"><?= __('Acciones') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($categories as $category): ?>
             <tr>
-                <td><?= $this->Number->format($category->id) ?></td>
                 <td><?= h($category->name) ?></td>
                 <td><?= $this->Number->format($category->price) ?></td>
-                <td><?= $category->has('restaurant') ? $this->Html->link($category->restaurant->id, ['controller' => 'Restaurants', 'action' => 'view', $category->restaurant->id]) : '' ?></td>
+                <td><?= $category->has('restaurant') ? $this->Html->link($category->restaurant->name, ['controller' => 'Restaurants', 'action' => 'view', $category->restaurant->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $category->id]) ?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $category->id]) ?>

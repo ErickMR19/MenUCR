@@ -13,7 +13,7 @@
         <?php
             echo $this->Form->input('acronym',['class'=>'form-control', 'label'=>'Sigla']);
             echo $this->Form->input('name',['class'=>'form-control', 'label'=>'Nombre']);
-            echo $this->Form->input('headquarter_id', ['options' => $headquarters, 'label'=>false, 'empty'=>'Sede a la que pertenece']);
+          
         ?>
     </div>
 
