@@ -43,7 +43,7 @@ function initMapEdit() {
         document.getElementById('x').value = marker.getPosition().lat();
         document.getElementById('y').value = marker.getPosition().lng();
     });
-
+    actualizar_coordenadas();
 }
 
 
@@ -65,4 +65,10 @@ function actualizar_mapa(lati, lon) {
         map: map,
         draggable: true
     });
+   
+    google.maps.event.addListener(marker, 'dragend', function (ev) {
+        document.getElementById('x').value = marker.position.lat();
+        document.getElementById('y').value = marker.position.lng();
+    });
+    actualizar_coordenadas();
 }

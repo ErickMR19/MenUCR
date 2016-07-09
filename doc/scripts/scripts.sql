@@ -45,13 +45,15 @@ CREATE TABLE users (
 CREATE TABLE restaurants(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
      name varchar(64) NOT NULL,
+     email varchar(64) NOT NULL,
      schedule varchar(128),
      card INT(1) DEFAULT 0,
      x DOUBLE NOT NULL,
      y DOUBLE NOT NULL,
      image_name varchar(256),
      association_id INT UNSIGNED,
-    FOREIGN KEY(association_id) REFERENCES associations(id)
+    FOREIGN KEY(association_id) REFERENCES associations(id),
+    UNIQUE(email)
 );
 
 CREATE TABLE dishes(

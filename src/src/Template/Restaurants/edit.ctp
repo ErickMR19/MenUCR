@@ -6,19 +6,24 @@
 </style>
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2>Editar soda</h2>
+        <h2>Está editando la soda: <?= h($restaurant->name) ?></h2>
         <br>
     </div>
 </div>
 <div class="restaurants form large-9 medium-8 columns content">
-    <?= $this->Form->create($restaurant) ?>
+    <?= $this->Form->create($restaurant, ['enctype' => 'multipart/form-data']) ?>
     <fieldset>
         <?php
+            echo $this->Form->input('id', ['class'=>'form-control','label' => 'Nombre', 'type'=>'hidden']);
+            echo $this->Form->input('name', ['class'=>'form-control','label' => 'Nombre']);
+            echo "<br>";
             echo $this->Form->input('schedule', ['class'=>'form-control', 'label' => 'Horario']);
+            echo "<br>";
+            echo $this->Form->input('email', ['class'=>'form-control','label'=>'Correo electrónico']);
             echo "<br>";
        ?>
         <div>
-          <h4>¿Aceptará la soda el pago con tarjetas?</h4>
+          <h4>¿Acepta la soda el pago con tarjetas?</h4>
             <label class="radio-inline">
               <input type="radio" id="radio_si" name="optradio" onclick="document.getElementById('card').value=1;">Sí
             </label>
@@ -44,18 +49,23 @@
         <?php echo "<br>"; ?>        
         <div align="center">
         <div id="map"></div></br>
-        <div>
-        <button type="button" class="btn btn-warning" onclick="actualizar_coordenadas();">Actualizar coordenadas</button>
-        </div></br>
         </div></br>
         <?php
             echo $this->Form->input('x', ['class'=>'form-control', 'label' => 'Latitud']);
             echo "<br>";
             echo $this->Form->input('y', ['class'=>'form-control', 'label' => 'Longitud']);
             echo "<br>";
-            echo $this->Form->input('image_name', ['class'=>'form-control', 'label' => 'Imagen']);
+        ?>
+        <h4>Imagen actual de esta soda</h4>
+        <div align="center" id="img_soda">
+            <?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%' , 'alt'=>'Esta soda no tiene imagen aún'));  ?>
+        </div>
+        <h4>Cambia la imagen de esta soda</h4>
+        <?php
+            echo $this->Form->input('imagen_seleccionada', ['class'=>'form-control', 'type' => 'file', 'label'=>false]);
+            echo $this->Form->input('image_name', ['type' => 'hidden']);
             echo "<br>";
-            echo $this->Form->input('association_id', ['class'=>'form-control', 'label' => 'Id de asociación','options' => $associations, 'empty' => true]);
+            echo $this->Form->input('association_id', ['class'=>'form-control', 'label' => 'Asociación a cargo','options' => $associations, 'empty' => true]);
             echo "<br>";
         ?>
     </fieldset>
@@ -92,7 +102,9 @@
     var latitud = div_latitud.textContent;
     var div_longitud = document.getElementById("div_longitud");
     var longitud = div_longitud.textContent;
-    var myLatLng; var map; var marker;
+    
+    var myLatLng; var map; var marker=0;
+    
     function initMap() {
     myLatLng = {lat: parseFloat(latitud), lng: parseFloat(longitud)};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -104,7 +116,12 @@
     map: map,
     draggable:true
     });
+    google.maps.event.addListener(marker, 'dragend', function (ev) {
+        document.getElementById('x').value = marker.getPosition().lat();
+        document.getElementById('y').value = marker.getPosition().lng();
+    });
     }
+    
     function actualizar_mapa(lati, lon) {
     myLatLng = {lat: lati, lng: lon};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -116,11 +133,18 @@
     map: map,
     draggable:true
     });
+    google.maps.event.addListener(marker, 'dragend', function (ev) {
+        document.getElementById('x').value = marker.position.lat();
+        document.getElementById('y').value = marker.position.lng();
+    });
+    actualizar_coordenadas();
     }
+    
     function actualizar_coordenadas(){
 	document.getElementById('x').value = marker.position.lat();
     document.getElementById('y').value = marker.position.lng();
     }
+    
     var tarjeta = document.getElementById("tarjeta").textContent;
     if (tarjeta > 0){
         document.getElementById('radio_si').checked = true;

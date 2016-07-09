@@ -9,25 +9,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('Nombre') ?></th>
                 <th><?= $this->Paginator->sort('Horario') ?></th>
+                <th><?= $this->Paginator->sort('Correo') ?></th>
                 <th><?= $this->Paginator->sort('Aceptan tarjeta') ?></th>
-                <th><?= $this->Paginator->sort('Latitud') ?></th>
-                <th><?= $this->Paginator->sort('Longitud') ?></th>
-                <th><?= $this->Paginator->sort('Imagen') ?></th>
-                <th><?= $this->Paginator->sort('Id de la asociacion') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th><?= $this->Paginator->sort('Asociación a cargo') ?></th>
+                <th class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($restaurants as $restaurant): ?>
             <tr>
-                <td><?= $this->Number->format($restaurant->id) ?></td>
+                <td><?= h($restaurant->name) ?></td>
                 <td><?= h($restaurant->schedule) ?></td>
-                <td><?= $this->Number->format($restaurant->card) ?></td>
-                <td><?= $this->Number->format($restaurant->x) ?></td>
-                <td><?= $this->Number->format($restaurant->y) ?></td>
-                <td><?= h($restaurant->image_name) ?></td>
+                <td><?= h($restaurant->email) ?></td>
+                <td><?php if ($this->Number->format($restaurant->card) == 0) { echo "No"; } else { echo "Sí"; } ?></td>
                 <td><?= $restaurant->has('association') ? $this->Html->link($restaurant->association->name, ['controller' => 'Associations', 'action' => 'view', $restaurant->association->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $restaurant->id]) ?>

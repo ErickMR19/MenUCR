@@ -22,9 +22,6 @@
         ?>
         <div align="center">
         <div id="map"></div></br>
-        <div>
-        <button type="button" class="btn btn-warning" onclick="actualizar_coordenadas();">Actualizar coordenadas</button>
-        </div></br>
         </div></br>
         <?php
             echo $this->Form->input('x' , ['label' => false , 'class' => 'form-control', 'placeholder' => 'longitud']);
