@@ -15,7 +15,6 @@ class RestaurantsController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->config('authError', ':(');
         $this->Auth->allow(['index','view']);
     }
     
@@ -64,13 +63,16 @@ class RestaurantsController extends AppController
         $sedes = TableRegistry::get('Headquarters')->find();
         $restaurant = $this->Restaurants->newEntity();
         if ($this->request->is('post')) {
+            
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
             if ($this->Restaurants->save($restaurant)) {
                 $this->Flash->success(__('The restaurant has been saved.'));
-                return $this->redirect(['action' => 'index']);
+               // return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
             }
+            
+            debug($this->request->data);
         }
         $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
         $this->set(compact('restaurant', 'associations', 'sedes'));
@@ -99,7 +101,7 @@ class RestaurantsController extends AppController
                 $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
             }
         }
-        $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
+        $associations = $this->Restaurants->Associations->find('list');
         $this->set(compact('restaurant', 'associations', 'sedes'));
         $this->set('_serialize', ['restaurant']);
     }
@@ -122,4 +124,39 @@ class RestaurantsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function getMenus($id = null)
+    {
+        if($id)
+        {
+            $query = $this->Restaurants->Categories->find()
+                ->select(['name', 'type.type', 'type.name','dishe.name', 'price','type.schedule','dishe.description'])
+                ->hydrate(false)
+                ->join([
+                    'type' => [
+                        'table' => 'menus',
+                        'type' => 'INNER',
+                        'conditions' => 'type.restaurant_id = Categories.restaurant_id',
+                    ],
+                    'menu' => [
+                        'table' => 'menus_dishes_categories',
+                        'type' => 'INNER',
+                        'conditions' => 'menu.menu_id = type.id AND menu.category_id = Categories.id',
+                    ],
+                    'dishe' => [
+                        'table' => 'dishes',
+                        'type' => 'INNER',
+                        'conditions' => 'dishe.id = menu.dishe_id',
+                    ]
+                ])
+                ->andWhere(['Categories.restaurant_id'=>$id, 'menu.date'=> "".date("Y-m-d").""])
+                ->order('Categories.name');
+
+
+            $query = $query->toArray();
+
+            $this->set('data', $query);
+        }
+    }
+
 }

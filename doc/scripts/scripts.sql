@@ -14,6 +14,7 @@ CREATE TABLE associations
   acronym varchar(16) NOT NULL,
   name varchar(70) NOT NULL,
   headquarter_id INT UNSIGNED NOT NULL,
+  email varchar(128) NOT NULL,
   
   PRIMARY KEY(id),
   FOREIGN KEY(headquarter_id) REFERENCES headquarters(id),
@@ -43,6 +44,7 @@ CREATE TABLE users (
 
 CREATE TABLE restaurants(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+     name varchar(64) NOT NULL,
      schedule varchar(128),
      card INT(1) DEFAULT 0,
      x DOUBLE NOT NULL,
@@ -85,5 +87,5 @@ CREATE TABLE menus_dishes_categories(
     FOREIGN KEY(menu_id) REFERENCES menus(id),
     FOREIGN KEY(dishe_id) REFERENCES dishes(id),
     FOREIGN KEY(category_id) REFERENCES categories(id),
-    UNIQUE(menu_id,dishe_id,category_id)
+    UNIQUE(menu_id,dishe_id,category_id,date)
 );

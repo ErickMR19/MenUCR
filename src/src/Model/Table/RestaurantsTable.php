@@ -73,6 +73,9 @@ class RestaurantsTable extends Table
 
         $validator
             ->allowEmpty('image_name');
+            
+        $validator
+            ->notEmpty('name');
 
         return $validator;
     }
