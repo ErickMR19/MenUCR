@@ -121,7 +121,7 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
-        $associations = $this->Users->Associations->find('list', ['limit' => 200]);
+        $associations = $this->Users->Associations->find('list');
         $this->set(compact('user', 'associations'));
         $this->set('roles', ['admin'=>'Administrador del Sistema', 'manager'=>'Encargado de Soda']);
         $this->set('_serialize', ['user']);
@@ -151,7 +151,7 @@ class UsersController extends AppController
                 Log::debug($this->validationErrors);
             }
         }
-        $associations = $this->Users->Associations->find('list', ['limit' => 200]);
+        $associations = $this->Users->Associations->find('list');
         $this->set(compact('user', 'associations'));
         $this->set('roles', ['admin'=>'Administrador del Sistema', 'manager'=>'Encargado de Soda']);
         $this->set('isAdmin', $isAdmin);

@@ -67,7 +67,7 @@ class AssociationsController extends AppController
                 $this->Flash->error(__('The association could not be saved. Please, try again.'));
             }
         }
-        $headquarters = $this->Associations->Headquarters->find('list', ['limit' => 200]);
+        $headquarters = $this->Associations->Headquarters->find('list');
         $this->set(compact('association', 'headquarters'));
         $this->set('_serialize', ['association']);
     }
@@ -93,7 +93,7 @@ class AssociationsController extends AppController
                 $this->Flash->error(__('The association could not be saved. Please, try again.'));
             }
         }
-        $headquarters = $this->Associations->Headquarters->find('list', ['limit' => 200]);
+        $headquarters = $this->Associations->Headquarters->find('list');
         $this->set(compact('association', 'headquarters'));
         $this->set('_serialize', ['association']);
     }

@@ -74,7 +74,7 @@ class MenusController extends AppController
                     $this->Flash->error(__('No cuenta con los permisos.'));
             }
         }
-        $restaurants = $this->Menus->Restaurants->find('list', ['limit' => 200]);
+        $restaurants = $this->Menus->Restaurants->find('list');
         $this->set(compact('menu', 'restaurants'));
         $this->set('_serialize', ['menu']);
     }
@@ -100,7 +100,7 @@ class MenusController extends AppController
                 $this->Flash->error(__('The menu could not be saved. Please, try again.'));
             }
         }
-        $restaurants = $this->Menus->Restaurants->find('list', ['limit' => 200]);
+        $restaurants = $this->Menus->Restaurants->find('list');
         $this->set(compact('menu', 'restaurants'));
         $this->set('_serialize', ['menu']);
     }

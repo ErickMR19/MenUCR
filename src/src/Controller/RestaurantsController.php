@@ -74,7 +74,7 @@ class RestaurantsController extends AppController
             
             debug($this->request->data);
         }
-        $associations = $this->Restaurants->Associations->find('list', ['limit' => 200]);
+        $associations = $this->Restaurants->Associations->find('list');
         $this->set(compact('restaurant', 'associations', 'sedes'));
         $this->set('_serialize', ['restaurant']);
     }
