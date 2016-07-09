@@ -23,6 +23,8 @@
                     echo "<br>";
                     echo $this->Form->input('schedule', ['class'=>'form-control','placeholder'=>'Horario','label'=>false]);
                     echo "<br>";
+                    echo $this->Form->input('email', ['class'=>'form-control','placeholder'=>'Correo electrónico','label'=>false]);
+                    echo "<br>";
                 ?>
                 <div>
                   <h4>¿Aceptará la soda el pago con tarjetas?</h4>
@@ -62,7 +64,7 @@
                 <?php
                     echo $this->Form->input('imagen_seleccionada', ['class'=>'form-control', 'type' => 'file', 'label'=>false]);
                     echo "<br>";
-                    echo $this->Form->input('association_id', ['options' => $associations, 'empty' => true, 'class'=>'form-control', 'empty'=>'Asociación','label'=>false]);
+                    echo $this->Form->input('association_id', ['options' => $associations, 'class'=>'form-control', 'empty'=>'Asociación a cargo','label'=>false]);
                 ?>
         </div>
     </div>

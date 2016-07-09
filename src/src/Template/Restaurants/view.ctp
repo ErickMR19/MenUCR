@@ -21,18 +21,18 @@
             <td><?= h($restaurant->schedule) ?></td>
         </tr>
         <tr>
+            <th><?= __('Correo electrónico') ?></th>
+            <td><?= h($restaurant->email) ?></td>
+        </tr>
+        <tr>
             <th><?= __('Imagen') ?></th>
         </tr>
     </table>
-    <div><?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%', 'alt'=>'Esta soda no tiene imagen aún'));  ?></div>
+    <div align="center"><?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%', 'alt'=>'Esta soda no tiene imagen aún'));  ?></div>
     <table class="table">
         <tr>
-            <th><?= __('Id de la asosiación') ?></th>
+            <th><?= __('Asosiación a cargo') ?></th>
             <td><?= $restaurant->has('association') ? $this->Html->link($restaurant->association->name, ['controller' => 'Associations', 'action' => 'view', $restaurant->association->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($restaurant->id) ?></td>
         </tr>
         <tr>
             <th><?= __('Aceptan tarjeta') ?></th>
@@ -45,14 +45,6 @@
                 }
                 ?>
             </td>
-        </tr>
-        <tr>
-            <th><?= __('Latitud') ?></th>
-            <td><?= $this->Number->format($restaurant->x) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Longitud') ?></th>
-            <td><?= $this->Number->format($restaurant->y) ?></td>
         </tr>
     </table>
     <div align="center">

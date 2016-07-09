@@ -9,17 +9,15 @@
     <table class="table">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('Nombre') ?></th>
                 <th><?= $this->Paginator->sort('Latitud') ?></th>
                 <th><?= $this->Paginator->sort('Longitud') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th class="actions"><?= __('Acciones') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($headquarters as $headquarters): ?>
             <tr>
-                <td><?= $this->Number->format($headquarters->id) ?></td>
                 <td><?= h($headquarters->name) ?></td>
                 <td><?= $this->Number->format($headquarters->x) ?></td>
                 <td><?= $this->Number->format($headquarters->y) ?></td>

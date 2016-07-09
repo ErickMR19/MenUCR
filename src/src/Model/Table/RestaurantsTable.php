@@ -76,6 +76,17 @@ class RestaurantsTable extends Table
             
         $validator
             ->notEmpty('name');
+        
+        $validator
+            ->notEmpty('association_id');
+            
+        $validator
+        ->notEmpty('email')
+        ->add('email', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'Dirección de email inválida'
+        ])
+       ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table', 'message' => 'Dirección de email ya en uso']);
 
         return $validator;
     }

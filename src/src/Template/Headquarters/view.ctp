@@ -17,10 +17,6 @@
             <td><?= h($headquarters->name) ?></td>
         </tr>
         <tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($headquarters->id) ?></td>
-        </tr>
-        <tr>
             <th><?= __('Latitud') ?></th>
             <td><?= $this->Number->format($headquarters->x) ?></td>
         </tr>

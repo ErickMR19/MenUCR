@@ -65,10 +65,11 @@ class RestaurantsController extends AppController
             if ($this->Restaurants->save($restaurant)) {
                 $this->Flash->success(__('The restaurant has been saved.'));
                 //Guardar imagen
+                
                 if (!empty($this->request->data['imagen_seleccionada']["name"])) {
                     $file = $this->request->data['imagen_seleccionada']; 
                     $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //obtenemos la extension para ver si es un imagen
-                    $arr_ext = array('jpg', 'jpeg', 'gif'); //extensiones validas
+                    $arr_ext = array('jpg', 'jpeg', 'gif', 'png'); //extensiones validas
                     //El siguiente código actualiza el row recién agregado a la bd, poniéndo un nombre para el campo "image_name"
                     $ultimo = $this->Restaurants->find('all')->last();
                     $sodas_upadate = TableRegistry::get('Restaurants');
@@ -111,20 +112,19 @@ class RestaurantsController extends AppController
             //debug($this->request->data);
             //Salvo el nombre de la imagen anterior
             $nombre_imagen_anterior = $this->request->data['image_name'];
-            debug($nombre_imagen_anterior);
             if ($this->Restaurants->save($restaurant)) {
                 $this->Flash->success(__('The restaurant has been saved.'));
                 //Edicion de imagen
                 if (!empty($this->request->data['imagen_seleccionada']["name"])) {
                     $file = $this->request->data['imagen_seleccionada']; 
                     $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //obtenemos la extension para ver si es un imagen
-                    $arr_ext = array('jpg', 'jpeg', 'gif'); //extensiones validas
+                    $arr_ext = array('jpg', 'jpeg', 'gif', 'png'); //extensiones validas
                     //El nombre de las imagenes es [id_soda]+[nombre_soda]+[nombre_imagen]
                     $setNewFileName = $this->request->data['id'] . "_" . $this->request->data['name'] . "_" . $this->request->data['imagen_seleccionada']["name"];
                     //only process if the extension is valid
                     if (in_array($ext, $arr_ext)) {
                         //Borramos la imagen anterior pues ya no se utilizará
-                        if (file_exists(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior)) {
+                        if ( (file_exists(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior)) && (strlen($nombre_imagen_anterior) > 0)) {
                             unlink(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior);
                         }
                         //Colocamos la imagen en el folder adecuado

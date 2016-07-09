@@ -43,7 +43,7 @@ function initMapEdit() {
         document.getElementById('x').value = marker.getPosition().lat();
         document.getElementById('y').value = marker.getPosition().lng();
     });
-
+    actualizar_coordenadas();
 }
 
 

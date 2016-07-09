@@ -19,9 +19,11 @@
             echo "<br>";
             echo $this->Form->input('schedule', ['class'=>'form-control', 'label' => 'Horario']);
             echo "<br>";
+            echo $this->Form->input('email', ['class'=>'form-control','label'=>'Correo electrónico']);
+            echo "<br>";
        ?>
         <div>
-          <h4>¿Aceptará la soda el pago con tarjetas?</h4>
+          <h4>¿Acepta la soda el pago con tarjetas?</h4>
             <label class="radio-inline">
               <input type="radio" id="radio_si" name="optradio" onclick="document.getElementById('card').value=1;">Sí
             </label>
@@ -55,15 +57,15 @@
             echo "<br>";
         ?>
         <h4>Imagen actual de esta soda</h4>
-        <div class="text-center" id="img_soda">
-            <?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%','alt'=>'Esta soda no tiene imagen aún'));  ?>
+        <div align="center" id="img_soda">
+            <?= $this->Html->image('restaurants_pictures/'.$restaurant->image_name, array('class' => 'img-responsive', 'width' => '50%' , 'alt'=>'Esta soda no tiene imagen aún'));  ?>
         </div>
         <h4>Cambia la imagen de esta soda</h4>
         <?php
             echo $this->Form->input('imagen_seleccionada', ['class'=>'form-control', 'type' => 'file', 'label'=>false]);
             echo $this->Form->input('image_name', ['type' => 'hidden']);
             echo "<br>";
-            echo $this->Form->input('association_id', ['class'=>'form-control', 'label' => 'Id de asociación','options' => $associations, 'empty' => true]);
+            echo $this->Form->input('association_id', ['class'=>'form-control', 'label' => 'Asociación a cargo','options' => $associations, 'empty' => true]);
             echo "<br>";
         ?>
     </fieldset>
