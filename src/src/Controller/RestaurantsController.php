@@ -15,7 +15,7 @@ class RestaurantsController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['index','view']);
+        $this->Auth->allow(['index','view','getMenus','indexByHeadquarter']);
     }
     
     /**
@@ -174,8 +174,8 @@ class RestaurantsController extends AppController
     {
         if($id)
         {
-            $query = $this->Restaurants->Categories->find()
-                ->select(['name', 'type.type', 'type.name','dishe.name', 'price','type.schedule','dishe.description'])
+            $data = $this->Restaurants->Categories->find()
+                ->select(['name', 'type.type','dishe.name', 'price','type.schedule','dishe.description'])
                 ->hydrate(false)
                 ->join([
                     'type' => [
@@ -198,9 +198,9 @@ class RestaurantsController extends AppController
                 ->order('Categories.name');
 
 
-            $query = $query->toArray();
 
-            $this->set('data', $query);
+            $this->set('menus', $data);
+            $this->set('_serialize', ['menus']);
         }
     }
 
