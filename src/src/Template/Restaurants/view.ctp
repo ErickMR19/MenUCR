@@ -50,62 +50,6 @@
     <div align="center">
     <div id="map"></div></br>
     </div></br>
-    <div class="related">
-        <h4><?= __('Categorías relacionadas') ?></h4>
-        <?php if (!empty($restaurant->categories)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('Nombre') ?></th>
-                <th><?= __('Precio') ?></th>
-                <th><?= __('Id de Restaurante') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($restaurant->categories as $categories): ?>
-            <tr>
-                <td><?= h($categories->id) ?></td>
-                <td><?= h($categories->name) ?></td>
-                <td><?= h($categories->price) ?></td>
-                <td><?= h($categories->restaurant_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Categories', 'action' => 'view', $categories->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Categories', 'action' => 'edit', $categories->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Categories', 'action' => 'delete', $categories->id], ['confirm' => __('Are you sure you want to delete # {0}?', $categories->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
-    <div class="related">
-        <h4><?= __('Menus relacionados') ?></h4>
-        <?php if (!empty($restaurant->menus)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('Nombre') ?></th>
-                <th><?= __('Tipo') ?></th>
-                <th><?= __('Id de restaurante') ?></th>
-                <th><?= __('Horario') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($restaurant->menus as $menus): ?>
-            <tr>
-                <td><?= h($menus->id) ?></td>
-                <td><?= h($menus->name) ?></td>
-                <td><?= h($menus->type) ?></td>
-                <td><?= h($menus->restaurant_id) ?></td>
-                <td><?= h($menus->schedule) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Menus', 'action' => 'view', $menus->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Menus', 'action' => 'edit', $menus->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Menus', 'action' => 'delete', $menus->id], ['confirm' => __('Are you sure you want to delete # {0}?', $menus->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
 </div>
 <div id="div_latitud" hidden>
 <?php
