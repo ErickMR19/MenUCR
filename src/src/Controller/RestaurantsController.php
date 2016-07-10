@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use Cake\Routing\Router;
 
 /**
  * Restaurants Controller
@@ -30,6 +31,22 @@ class RestaurantsController extends AppController
         ];
         $restaurants = $this->paginate($this->Restaurants);
 
+        $this->set(compact('restaurants'));
+        $this->set('_serialize', ['restaurants']);
+    }
+
+    /**
+     * IndexByHeadquaters method
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function indexByHeadquarter($id = null)
+    {
+        $restaurants = $this->Restaurants->find('all', ['contain' => ['Associations']])->where(['Associations.headquarter_id =' => $id]);
+        foreach ($restaurants as $restaurant){
+            $rutaImagen = "/img/restaurants_pictures/{$restaurant['image_name']}";
+            $restaurant['image_name'] = Router::url($rutaImagen, true);
+        }
         $this->set(compact('restaurants'));
         $this->set('_serialize', ['restaurants']);
     }
