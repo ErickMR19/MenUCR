@@ -20,5 +20,14 @@ use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 ?>
 <script>
-    window.location = window.location.href + "users/login";
+    var menu_lateral = document.getElementById('menu_lateral').childNodes.length;
+    //No esta logeado
+    if(menu_lateral < 10)
+    {
+        window.location = window.location.href + "users/login";
+    } else {
+    //Esta logeado
+        window.location = window.location.href + "pages/welcome";
+    }
+   
 </script>

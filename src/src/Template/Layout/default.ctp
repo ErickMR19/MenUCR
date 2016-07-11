@@ -83,7 +83,7 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <ul id="menu_lateral" class="nav navbar-nav side-nav">
                     <li id="menu_tipo_menus">
                         <a  data-toggle="collapse" data-target="#menu_id">Tipos de Menú</a>
                         <ul id="menu_id" class="collapse">
