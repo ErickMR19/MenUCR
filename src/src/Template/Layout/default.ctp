@@ -1,3 +1,9 @@
+<?php 
+    $name = $this->request->session()->read('Auth.User.name');
+    $idUser = $this->request->session()->read('Auth.User.id');    
+    $isAdmin = $this->request->session()->read('Auth.User.role') === 'admin'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,30 +41,37 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
+    <?php if (! $idUser): ?>
+    <style>
+        #wrapper {
+            padding: 0;
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+    <?php endif; ?>
 
 </head>
 
 <body>
-    <?php 
-        $name = $this->request->session()->read('Auth.User.name');
-        $idUser = $this->request->session()->read('Auth.User.id');    
-        $isAdmin = $this->request->session()->read('Auth.User.role') === 'admin';
-    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                <?php if ($idUser): ?>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <?php endif; ?>
                 <a class="navbar-brand" href="#">Administración</a>
             </div>
             <!-- Top Menu Items -->
+            <?php if ($idUser): ?>
             <ul class="nav navbar-right top-nav">
 
 
@@ -81,9 +94,11 @@
                     </ul>
                 </li>
             </ul>
+            <?php endif; ?>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                <?php if ($idUser): ?>
+                <ul id="menu_lateral" class="nav navbar-nav side-nav">
                     <li id="menu_tipo_menus">
                         <a  data-toggle="collapse" data-target="#menu_id">Tipos de Menú</a>
                         <ul id="menu_id" class="collapse">
@@ -147,6 +162,7 @@
                     </li>
                     <?php endif; ?>
                 </ul>
+                <?php endif; ?>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
