@@ -11,6 +11,12 @@
             <th><?= __('Nombre') ?></th>
             <td><?= h($dish->name) ?></td>
         </tr>
+
+        <tr>
+            <th><?= __('Soda') ?></th>
+            <td><?= $dish->has('restaurant') ? $this->Html->link($dish->restaurant->name, ['controller' => 'Restaurants', 'action' => 'view', $dish->restaurant->id]) : '' ?></td>
+        </tr>
+        
         <tr>
             <th><?= __('Descripción') ?></th>
             <td><?= h($dish->description) ?></td>

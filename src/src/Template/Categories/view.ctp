@@ -11,7 +11,7 @@
             <td><?= h($category->name) ?></td>
         </tr>
         <tr>
-            <th><?= __('Restaurante') ?></th>
+            <th><?= __('Soda') ?></th>
             <td><?= $category->has('restaurant') ? $this->Html->link($category->restaurant->name, ['controller' => 'Restaurants', 'action' => 'view', $category->restaurant->id]) : '' ?></td>
         </tr>
 

@@ -14,6 +14,7 @@
 
                 <th><?= $this->Paginator->sort('name',['label'=>'Nombre']) ?></th>
                 <th><?= $this->Paginator->sort('description',['label'=>'Descripción']) ?></th>
+                <th><?= $this->Paginator->sort('restaurant_id',['label'=>'Restaurante asociado']) ?></th>
                 <th class="actions"><?= __('Acciones') ?></th>
             </tr>
             </thead>
@@ -22,6 +23,7 @@
                 <tr>
                     <td><?= h($dish->name) ?></td>
                     <td><?= h($dish->description) ?></td>
+                    <td><?= $dish->has('restaurant') ? $this->Html->link($dish->restaurant->name, ['controller' => 'Restaurants', 'action' => 'view', $dish->restaurant->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Ver'), ['action' => 'view', $dish->id]) ?>
                         <?= $this->Html->link(__('Editar'), ['action' => 'edit', $dish->id]) ?>

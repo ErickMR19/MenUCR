@@ -1,6 +1,9 @@
+
+
+
 <div class="row text-center">
     <div class="col-xs-12">
-        <h2><?= h($menu->name) ?></h2>
+        <h2><?= h($menu->type) ?></h2>
     </div>
 </div>
 
@@ -11,7 +14,7 @@
             <td><?= h($menu->type) ?></td>
         </tr>
         <tr>
-            <th><?= __('Restaurante') ?></th>
+            <th><?= __('Soda') ?></th>
             <td><?= $menu->has('restaurant') ? $this->Html->link($menu->restaurant->name, ['controller' => 'Restaurants', 'action' => 'view', $menu->restaurant->id]) : '' ?></td>
         </tr>
         <tr>

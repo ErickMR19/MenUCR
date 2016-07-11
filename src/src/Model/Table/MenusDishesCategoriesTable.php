@@ -7,6 +7,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
+
 /**
  * MenusDishesCategories Model
  *
@@ -43,6 +44,7 @@ class MenusDishesCategoriesTable extends Table
             'foreignKey' => 'category_id',
             'joinType' => 'INNER'
         ]);
+
     }
 
     /**
@@ -79,4 +81,7 @@ class MenusDishesCategoriesTable extends Table
         $rules->add($rules->existsIn(['category_id'], 'Categories'));
         return $rules;
     }
+
+
+
 }

@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Datasource\Exception\RecordNotFoundException;
 
 /**
  * Categories Controller
@@ -24,8 +25,14 @@ class CategoriesController extends AppController
      */
     public function index()
     {
+
+        $condition = $this->getRestaurantId('Restaurants.id');
+
         $this->paginate = [
-            'contain' => ['Restaurants']
+            'contain' => ['Restaurants'=> function($query) use ($condition){
+                return $query->where([$condition]);
+            }
+            ]
         ];
         $categories = $this->paginate($this->Categories);
 
@@ -42,9 +49,21 @@ class CategoriesController extends AppController
      */
     public function view($id = null)
     {
-        $category = $this->Categories->get($id, [
-            'contain' => ['Restaurants', 'MenusDishesCategories']
-        ]);
+        $condition = $this->getRestaurantId('Restaurants.id');
+
+        try
+        {
+            $category = $this->Categories->get($id, [
+                'contain' => ['Restaurants'=> function($query) use ($condition){
+                    return $query->where([$condition]);
+                }
+                ]
+            ]);
+        }
+        catch (RecordNotFoundException $e)
+        {
+            return $this->redirect(['action' => 'index']);
+        }
 
         $this->set('category', $category);
         $this->set('_serialize', ['category']);
@@ -59,6 +78,14 @@ class CategoriesController extends AppController
     {
         $category = $this->Categories->newEntity();
         if ($this->request->is('post')) {
+
+            if($this->request->session()->read('Auth.User.role') === 'manager')
+            {
+                $restaurant_id = $this->Categories->getRestaurantId($this->request->session()->read('Auth.User.association_id'));
+                $restaurant_id = ((is_null($restaurant_id))? null : $restaurant_id[0]['id']);
+                $this->request->data['restaurant_id'] = $restaurant_id;
+            }
+
             $category = $this->Categories->patchEntity($category, $this->request->data);
             if ($this->Categories->save($category)) {
                 $this->Flash->success(__('The category has been saved.'));
@@ -95,9 +122,22 @@ class CategoriesController extends AppController
      */
     public function edit($id = null)
     {
-        $category = $this->Categories->get($id, [
-            'contain' => []
-        ]);
+        $condition = $this->getRestaurantId('Restaurants.id');
+
+        try
+        {
+            $category = $this->Categories->get($id, [
+                'contain' => ['Restaurants'=> function($query) use ($condition){
+                    return $query->where([$condition]);
+                }
+                ]
+            ]);
+        }
+        catch (RecordNotFoundException $e)
+        {
+            return $this->redirect(['action' => 'index']);
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $category = $this->Categories->patchEntity($category, $this->request->data);
             if ($this->Categories->save($category)) {
@@ -133,7 +173,23 @@ class CategoriesController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $category = $this->Categories->get($id);
+
+        $condition = $this->getRestaurantId('Restaurants.id');
+
+        try
+        {
+            $category = $this->Categories->get($id, [
+                'contain' => ['Restaurants'=> function($query) use ($condition){
+                    return $query->where([$condition]);
+                }
+                ]
+            ]);
+        }
+        catch (RecordNotFoundException $e)
+        {
+            return $this->redirect(['action' => 'index']);
+        }
+
         if ($this->Categories->delete($category)) {
             $this->Flash->success(__('The category has been deleted.'));
         } else {
@@ -141,4 +197,40 @@ class CategoriesController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    private function getRestaurantId($key)
+    {
+        $restaurant_id = 1;
+
+        if($this->request->session()->read('Auth.User.role') === 'manager') {
+
+            $association_id = $this->request->session()->read('Auth.User.association_id');
+
+
+            $this->loadModel('Restaurants');
+            $restaurant_id = $this->Restaurants->find()
+                ->select(['id'])
+                ->where(['association_id' => $association_id]);
+
+            $restaurant_id = $restaurant_id->toArray();
+
+            $restaurant_id = ((is_null($restaurant_id)) ? null : $restaurant_id[0]['id']);
+        }
+        else
+        {
+            $key = $restaurant_id." = ";
+        }
+
+        $condition[$key] = $restaurant_id;
+
+        return $condition;
+    }
+
+    public function isAuthorized($user)
+    {
+        return true;
+
+        return parent::isAuthorized($user);
+    }
+
 }

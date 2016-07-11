@@ -14,8 +14,14 @@
             echo "<br>";
             echo $this->Form->input('type',['class'=>'form-control','label'=>false,'placeholder'=>'Tipo de menú']);
             echo "<br>";
-            echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control','empty'=>'Restaurante Asociado','label'=>false]);
-            echo "<br>";
+
+            if($this->request->session()->read('Auth.User.role') === 'admin')
+            {
+                echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control','empty'=>'Restaurante Asociado','label'=>false]);
+                echo "<br>";
+            }
+
+
             echo $this->Form->input('schedule',['class'=>'form-control','label'=>false,'placeholder'=>'Horario del Menú']);
             ?>
         </div>

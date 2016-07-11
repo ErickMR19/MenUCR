@@ -59,7 +59,9 @@ CREATE TABLE restaurants(
 CREATE TABLE dishes(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
      name varchar(256) NOT NULL,
-     description varchar(4096) NOT NULL
+     description varchar(4096) NOT NULL,
+     restaurant_id INT UNSIGNED NOT NULL,
+     FOREIGN KEY(restaurant_id) REFERENCES restaurants(id)
 );
 
 CREATE TABLE menus(

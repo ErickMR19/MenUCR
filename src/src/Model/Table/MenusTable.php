@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * Menus Model
@@ -57,6 +58,10 @@ class MenusTable extends Table
             ->notEmpty('type');
 
         $validator
+            ->requirePresence('restaurant_id', 'create')
+            ->notEmpty('restaurant_id');
+
+        $validator
             ->allowEmpty('schedule');
 
         return $validator;
@@ -74,4 +79,23 @@ class MenusTable extends Table
         $rules->add($rules->existsIn(['restaurant_id'], 'Restaurants'));
         return $rules;
     }
+
+    public function getRestaurantId($association_id = null)
+    {
+        $restaurant_id = null;
+
+        if($association_id)
+        {
+            $restaurants = TableRegistry::get('Restaurants');
+            $restaurant_id = $restaurants->find()
+                ->select(['id'])
+                ->where(['association_id'=>$association_id]);
+
+            $restaurant_id = $restaurant_id->toArray();
+        }
+
+        return $restaurant_id;
+    }
+    
+
 }

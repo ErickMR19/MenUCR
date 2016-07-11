@@ -2,7 +2,10 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Exception\Exception;
+use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Event\Event;
+
 
 /**
  * Menus Controller
@@ -24,8 +27,13 @@ class MenusController extends AppController
      */
     public function index()
     {
+         $condition = $this->getRestaurantId('Restaurants.id');
+
         $this->paginate = [
-            'contain' => ['Restaurants']
+            'contain' => ['Restaurants'=> function($query) use ($condition){
+                return $query->where([$condition]);
+            }
+            ]
         ];
         $menus = $this->paginate($this->Menus);
 
@@ -42,9 +50,24 @@ class MenusController extends AppController
      */
     public function view($id = null)
     {
-        $menu = $this->Menus->get($id, [
-            'contain' => ['Restaurants', 'MenusDishesCategories']
-        ]);
+       $condition = $this->getRestaurantId('Restaurants.id');
+
+
+        try
+        {
+            $menu = $this->Menus->get($id, [
+                'contain' => ['Restaurants'=> function($query) use ($condition){
+                    return $query->where([$condition]);
+                }
+                ]
+            ]);
+        }
+        catch (RecordNotFoundException $e)
+        {
+            return $this->redirect(['action' => 'index']);
+        }
+
+
 
         $this->set('menu', $menu);
         $this->set('_serialize', ['menu']);
@@ -59,20 +82,23 @@ class MenusController extends AppController
     {
         $menu = $this->Menus->newEntity();
         if ($this->request->is('post')) {
-            $menu = $this->Menus->patchEntity($menu, $this->request->data);
-            $restaurants = $this->loadmodel('Restaurants');
-            if(  $this->Auth->user('role') === 'admin' or$restaurants->get($menu['restaurant_id'])['association_id'] == $this->Auth->user('association_id') )
+            
+            if($this->request->session()->read('Auth.User.role') === 'manager')
             {
+                $restaurant_id = $this->Menus->getRestaurantId($this->request->session()->read('Auth.User.association_id'));
+                $restaurant_id = ((is_null($restaurant_id))? null : $restaurant_id[0]['id']);
+                $this->request->data['restaurant_id'] = $restaurant_id;
+            }
+            
+            $menu = $this->Menus->patchEntity($menu, $this->request->data);
+                
                 if ($this->Menus->save($menu)) {
                     $this->Flash->success(__('The menu has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 } else {
                     $this->Flash->error(__('The menu could not be saved. Please, try again.'));
                 }
-            }
-            else{
-                    $this->Flash->error(__('No cuenta con los permisos.'));
-            }
+
         }
         
         
@@ -101,9 +127,22 @@ class MenusController extends AppController
      */
     public function edit($id = null)
     {
-        $menu = $this->Menus->get($id, [
-            'contain' => []
-        ]);
+        $condition = $this->getRestaurantId('Restaurants.id');
+
+        try
+        {
+            $menu = $this->Menus->get($id, [
+                'contain' => ['Restaurants'=> function($query) use ($condition){
+                    return $query->where([$condition]);
+                }
+                ]
+            ]);
+        }
+        catch (RecordNotFoundException $e)
+        {
+            return $this->redirect(['action' => 'index']);
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $menu = $this->Menus->patchEntity($menu, $this->request->data);
             if ($this->Menus->save($menu)) {
@@ -141,7 +180,22 @@ class MenusController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $menu = $this->Menus->get($id);
+        $condition = $this->getRestaurantId('Restaurants.id');
+
+        try
+        {
+            $menu = $this->Menus->get($id, [
+                'contain' => ['Restaurants'=> function($query) use ($condition){
+                    return $query->where([$condition]);
+                }
+                ]
+            ]);
+        }
+        catch (RecordNotFoundException $e)
+        {
+            return $this->redirect(['action' => 'index']);
+        }
+
         if ($this->Menus->delete($menu)) {
             $this->Flash->success(__('The menu has been deleted.'));
         } else {
@@ -149,7 +203,36 @@ class MenusController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
-    
+
+
+    private function getRestaurantId($key)
+    {
+        $restaurant_id = 1;
+
+        if($this->request->session()->read('Auth.User.role') === 'manager') {
+
+            $association_id = $this->request->session()->read('Auth.User.association_id');
+
+
+            $this->loadModel('Restaurants');
+            $restaurant_id = $this->Restaurants->find()
+                ->select(['id'])
+                ->where(['association_id' => $association_id]);
+
+            $restaurant_id = $restaurant_id->toArray();
+
+            $restaurant_id = ((is_null($restaurant_id)) ? null : $restaurant_id[0]['id']);
+        }
+        else
+        {
+            $key = $restaurant_id." = ";
+        }
+
+        $condition[$key] = $restaurant_id;
+
+        return $condition;
+    }
+
     public function isAuthorized($user)
     {
         return true;

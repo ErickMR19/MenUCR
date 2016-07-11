@@ -20,9 +20,11 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($menusDishesCategories as $menusDishesCategory): ?>
+        <?php
+        
+        foreach ($menusDishesCategories as $menusDishesCategory): ?>
             <tr>
-                <td><?= $menusDishesCategory->has('menu') ? $this->Html->link($menusDishesCategory->menu->name, ['controller' => 'Menus', 'action' => 'view', $menusDishesCategory->menu->id]) : '' ?></td>
+                <td><?= $menusDishesCategory->has('menu') ? $this->Html->link($menusDishesCategory->menu->type, ['controller' => 'Menus', 'action' => 'view', $menusDishesCategory->menu->id]) : '' ?></td>
                 <td><?= $menusDishesCategory->has('dish') ? $this->Html->link($menusDishesCategory->dish->name, ['controller' => 'Dishes', 'action' => 'view', $menusDishesCategory->dish->id]) : '' ?></td>
                 <td><?= $menusDishesCategory->has('category') ? $this->Html->link($menusDishesCategory->category->name, ['controller' => 'Categories', 'action' => 'view', $menusDishesCategory->category->id]) : '' ?></td>
                 <td><?= h($menusDishesCategory->date) ?></td>

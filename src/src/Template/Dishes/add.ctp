@@ -13,6 +13,13 @@
             <div class="form-group">
                 <?php
                 echo $this->Form->input('name',['class'=>'form-control', 'placeholder'=>'Nombre del Platillo', 'label'=> false]);
+
+                if($this->request->session()->read('Auth.User.role') === 'admin')
+                {
+                    echo "<br>";
+                    echo $this->Form->input('restaurant_id', ['options' => $restaurants, 'class'=>'form-control','empty'=>'Restaurante Asociado','label'=>false]);
+                }
+
                 echo "<br>";
                 echo $this->Form->input('description',['type'=>'textarea','class'=>'form-control', 'placeholder'=>'Agregue los ingredientes del platillo', 'label'=>false]);
                 ?>
