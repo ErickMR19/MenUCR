@@ -12,9 +12,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th><?= $this->Paginator->sort('menu_id',['label'=>'Menú']) ?></th>
+            <th><?= $this->Paginator->sort('menu_id',['label'=>'Tipo de menú']) ?></th>
             <th><?= $this->Paginator->sort('dishe_id',['label'=>'Platillo']) ?></th>
-            <th><?= $this->Paginator->sort('category_id',['label'=>'Categoría']) ?></th>
+            <th><?= $this->Paginator->sort('category_id',['label'=>'Tipo de platillo']) ?></th>
             <th><?= $this->Paginator->sort('date',['label'=>'Fecha']) ?></th>
             <th class="actions"><?= __('Acciones') ?></th>
         </tr>
