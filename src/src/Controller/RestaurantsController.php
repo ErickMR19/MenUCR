@@ -6,6 +6,8 @@ use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
+use Cake\Mailer\Email;
+use Cake\Validation\Validator;
 
 /**
  * Restaurants Controller
@@ -17,7 +19,7 @@ class RestaurantsController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['index','view','getMenus','indexByHeadquarter']);
+        $this->Auth->allow(['index','view','getMenus','indexByHeadquarter','sendEmail']);
         $this->response->header('Access-Control-Allow-Origin','*');
         $this->response->header('Access-Control-Allow-Methods','*');
         $this->response->header('Access-Control-Allow-Headers','X-Requested-With');
@@ -264,6 +266,55 @@ class RestaurantsController extends AppController
 
             $this->set('menus', $data);
             $this->set('_serialize', ['menus']);
+        }
+    }
+
+
+    /**
+     * SendEmail method
+     *
+     * Valida los datos de envío de un email, y si no hay errores lo envía
+     */
+    public function sendEmail($id)
+    {   
+        if ($this->request->is('post')) {
+            $restaurant = $this->Restaurants->get($id);             
+            if(! $restaurant)  {
+                $errors = ['IndicadorSoda' => 'La soda indicada  no existe'];
+            }
+            else
+            {
+                $validator = new Validator();
+                $validator
+                    ->requirePresence('email')
+                    ->add('email', 'validFormat', [
+                        'rule' => 'email',
+                        'message' => 'La direccion email debe ser válida.'
+                    ])
+                    ->requirePresence('name')
+                    ->notEmpty('name', 'El nombre es requerido.')
+                    ->requirePresence('body')
+                    ->notEmpty('comment', 'Necesita escribir un mensaje.');
+                $errors = $validator->errors($this->request->data());
+            }
+            
+            if( empty($errors) )
+            {
+                $datos = $this->request->data;
+                $email = new Email('default');
+                $email->from([$datos['email'] => $datos['name']])
+                    ->to([$restaurant['email'] => $restaurant['name']])
+                    ->replyTo([$datos['email'] => $datos['name']])
+                    ->subject('Mensaje recibido mediante MenUCR')
+                    ->send($datos['body']);
+                $errors['Exito'] = 1;
+            }
+            else {
+                $errors['Exito'] = 0;
+            }
+            $this->set('respuesta', $errors);
+            $this->set('_serialize', ['respuesta']);
+            
         }
     }
 
