@@ -51,9 +51,8 @@ class AppController extends Controller
                 'welcome'
             ],
             'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
+                'controller' => 'Users',
+                'action' => 'login'
             ],
             'flash' => [
                 'element' => 'error'

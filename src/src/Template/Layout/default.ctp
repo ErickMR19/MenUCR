@@ -168,7 +168,7 @@
         </nav>
 
         <div id="page-wrapper">
-            <?php $this->Flash->render() ?>
+            <?= $this->Flash->render() ?>
             <div class="container-fluid">
 
                 <?= $this->fetch('content') ?>
