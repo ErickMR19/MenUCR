@@ -17,6 +17,11 @@ class RestaurantsController extends AppController
     {
         parent::beforeFilter($event);
         $this->Auth->allow(['index','view','getMenus','indexByHeadquarter']);
+        $this->response->header('Access-Control-Allow-Origin','*');
+        $this->response->header('Access-Control-Allow-Methods','*');
+        $this->response->header('Access-Control-Allow-Headers','X-Requested-With');
+        $this->response->header('Access-Control-Allow-Headers','Content-Type, x-xsrf-token');
+        $this->response->header('Access-Control-Max-Age','172800');
     }
     
     /**
@@ -44,8 +49,11 @@ class RestaurantsController extends AppController
     {
         $restaurants = $this->Restaurants->find('all', ['contain' => ['Associations']])->where(['Associations.headquarter_id =' => $id]);
         foreach ($restaurants as $restaurant){
-            $rutaImagen = "/img/restaurants_pictures/{$restaurant['image_name']}";
-            $restaurant['image_name'] = Router::url($rutaImagen, true);
+            if( $restaurant['image_name'] != "" )
+            {
+                $rutaImagen = "/img/restaurants_pictures/{$restaurant['image_name']}";
+                $restaurant['image_name'] = Router::url($rutaImagen, true);
+            }
         }
         $this->set(compact('restaurants'));
         $this->set('_serialize', ['restaurants']);

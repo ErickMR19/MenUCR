@@ -15,6 +15,11 @@ class HeadquartersController extends AppController
     {
         parent::beforeFilter($event);
         $this->Auth->allow(['index','view']);
+        $this->response->header('Access-Control-Allow-Origin','*');
+        $this->response->header('Access-Control-Allow-Methods','*');
+        $this->response->header('Access-Control-Allow-Headers','X-Requested-With');
+        $this->response->header('Access-Control-Allow-Headers','Content-Type, x-xsrf-token');
+        $this->response->header('Access-Control-Max-Age','172800');
     }
 
     /**
