@@ -64,6 +64,7 @@ class MenusController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que desea ver no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -140,6 +141,7 @@ class MenusController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que desea editar no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -190,17 +192,28 @@ class MenusController extends AppController
                 }
                 ]
             ]);
+
+            try
+            {
+                if ($this->Menus->delete($menu)) {
+                    $this->Flash->success(__('El menú ha sido eliminado.'));
+                } else {
+                    $this->Flash->error(__('El menu no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
+                }
+            }
+            catch (\PDOException $e)
+            {
+                $this->Flash->error(__('No se pudo borrar el tipo de menú. Debe borrar antes la información asociada a este tipo de menú, como platillos o tipos de platillos.'));
+            }
+
         }
-        catch (RecordNotFoundException $e)
+        catch (RecordNotFoundException $record)
         {
+            $this->Flash->error(__('La información que desea borrar no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
-        if ($this->Menus->delete($menu)) {
-            $this->Flash->success(__('El menú ha sido eliminado.'));
-        } else {
-            $this->Flash->error(__('El menu no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
-        }
+
         return $this->redirect(['action' => 'index']);
     }
 
