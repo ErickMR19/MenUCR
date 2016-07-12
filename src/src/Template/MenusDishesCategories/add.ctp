@@ -17,8 +17,9 @@
         echo "<br>";
         echo $this->Form->input('category_id', ['options' => $categories, 'class'=>'form-control', 'label'=>false,'empty'=>'Tipo de menú']);
         echo "<br>";
-        echo $this->Form->input('date', ['class'=>'form-control', 'label'=>'Fecha']);
         ?>
+
+        <input type="date" id="date" name="date" class="form-control" placeholder="Fecha de creación del menú" required>
     </div>
 
 

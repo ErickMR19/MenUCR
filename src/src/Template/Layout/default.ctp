@@ -23,7 +23,7 @@
     <!-- Custom CSS -->
     <?= $this->Html->css('sb-admin.css') ?>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-
+    <?= $this->Html->css('jquery-ui/jquery-ui.min.css') ?>
 
     <?= $this->Html->css('layout.css') ?>
 
@@ -188,6 +188,9 @@
     <!-- Bootstrap Core JavaScript -->
     <?=$this->Html->script('bootstrap.min.js') ?>
 
+    <?=$this->Html->script('modernizr/modernizr-custom.js') ?>
+    <?=$this->Html->script('jquery-ui/jquery-ui.min.js') ?>
+    <?=$this->Html->script('datepicker.js') ?>
 </body>
 
 </html>

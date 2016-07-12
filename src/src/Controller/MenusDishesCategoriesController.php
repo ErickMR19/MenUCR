@@ -88,10 +88,10 @@ class MenusDishesCategoriesController extends AppController
 
             $menusDishesCategory = $this->MenusDishesCategories->patchEntity($menusDishesCategory, $this->request->data);
             if ($this->verifyRestaurant($this->request->data) && $this->MenusDishesCategories->save($menusDishesCategory)) {
-                $this->Flash->success(__('La categoría ha sido agregada.'));
+                $this->Flash->success(__('El menú ha sido agregado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('La categoría no pudo ser agregada. Por favor, inténtelo de nuevo.'));
+                $this->Flash->error(__('El menú no pudo ser agregado. Esto puede deberse a que está tratando de agregar tipos de menú, tipos de platillo y platillos de distintas sodas. Verifique e intente de nuevo'));
             }
 
         }
@@ -154,10 +154,10 @@ class MenusDishesCategoriesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $menusDishesCategory = $this->MenusDishesCategories->patchEntity($menusDishesCategory, $this->request->data);
             if ($this->verifyRestaurant($this->request->data) && $this->MenusDishesCategories->save($menusDishesCategory)) {
-                $this->Flash->success(__('La categoría ha sido editada.'));
+                $this->Flash->success(__('El menú ha sido editado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('La categoría no pudo ser editada. Por favor, inténtelo de nuevo.'));
+                $this->Flash->error(__('El menú no pudo ser editado. Por favor, inténtelo de nuevo.'));
             }
         }
 
