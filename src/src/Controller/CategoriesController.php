@@ -88,10 +88,10 @@ class CategoriesController extends AppController
 
             $category = $this->Categories->patchEntity($category, $this->request->data);
             if ($this->Categories->save($category)) {
-                $this->Flash->success(__('The category has been saved.'));
+                $this->Flash->success(__('La categoría ha sido agregada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The category could not be saved. Please, try again.'));
+                $this->Flash->error(__('La categoria no ha podido ser agregada. Por favor, inténtalo de nuevo.'));
             }
         }
 
@@ -141,10 +141,10 @@ class CategoriesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $category = $this->Categories->patchEntity($category, $this->request->data);
             if ($this->Categories->save($category)) {
-                $this->Flash->success(__('The category has been saved.'));
+                $this->Flash->success(__('La categoría ha sido editada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The category could not be saved. Please, try again.'));
+                $this->Flash->error(__('La categoria no ha podido ser editada. Por favor, inténtalo de nuevo.'));
             }
         }
         
@@ -191,9 +191,9 @@ class CategoriesController extends AppController
         }
 
         if ($this->Categories->delete($category)) {
-            $this->Flash->success(__('The category has been deleted.'));
+            $this->Flash->success(__('La categoría ha sido eliminada.'));
         } else {
-            $this->Flash->error(__('The category could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La categoria no ha podido ser eliminada. Por favor, inténtalo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

@@ -36,7 +36,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->error(__('Usuario o contraseña inválida, inténtelo de nuevo'));
         }
     }
 
@@ -96,10 +96,10 @@ class UsersController extends AppController
                 ['validate' => 'changePassword']
             );
             if ($this->Users->save($user)) {
-                $this->Flash->success('The password is successfully changed');
+                $this->Flash->success('La contraseña fue cambiada correctamente.');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('There was an error during the save!');
+                $this->Flash->error('No se pudo cambiar la contraseña!');
             }
         }
         $this->set('user',$user);
@@ -116,10 +116,10 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('El usuario ha sido agregado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('El usuario no pudo ser agregado. Por favor, inténtelo de nuevo.'));
             }
         }
         $associations = $this->Users->Associations->find('list');
@@ -145,10 +145,10 @@ class UsersController extends AppController
             $data = $this->request->data;
             $user = $this->Users->patchEntity($user, $data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('El usuario ha sido editado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('El usuario no pudo ser editado. Por favor, inténtelo de nuevo.'));
                 Log::debug($this->validationErrors);
             }
         }
@@ -171,9 +171,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('El usuario ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El usuario no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

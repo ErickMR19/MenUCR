@@ -88,10 +88,10 @@ class DishesController extends AppController
 
             $dish = $this->Dishes->patchEntity($dish, $this->request->data);
             if ($this->Dishes->save($dish)) {
-                $this->Flash->success(__('The dish has been saved.'));
+                $this->Flash->success(__('El platillo ha sido agregado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The dish could not be saved. Please, try again.'));
+                $this->Flash->error(__('El platillo no pudo ser agregado. Por favor, inténtelo de nuevo.'));
             }
         }
 
@@ -140,10 +140,10 @@ class DishesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $dish = $this->Dishes->patchEntity($dish, $this->request->data);
             if ($this->Dishes->save($dish)) {
-                $this->Flash->success(__('The dish has been saved.'));
+                $this->Flash->success(__('El platillo ha sido editado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The dish could not be saved. Please, try again.'));
+                $this->Flash->error(__('El platillo no pudo ser editado. Por favor, inténtelo de nuevo.'));
             }
         }
         $this->set(compact('dish'));
@@ -177,9 +177,9 @@ class DishesController extends AppController
         }
 
         if ($this->Dishes->delete($dish)) {
-            $this->Flash->success(__('The dish has been deleted.'));
+            $this->Flash->success(__('El platillo ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('The dish could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El platillo no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

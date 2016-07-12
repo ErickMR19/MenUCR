@@ -93,10 +93,10 @@ class MenusController extends AppController
             $menu = $this->Menus->patchEntity($menu, $this->request->data);
                 
                 if ($this->Menus->save($menu)) {
-                    $this->Flash->success(__('The menu has been saved.'));
+                    $this->Flash->success(__('El menú ha sido agregado.'));
                     return $this->redirect(['action' => 'index']);
                 } else {
-                    $this->Flash->error(__('The menu could not be saved. Please, try again.'));
+                    $this->Flash->error(__('El menu no pudo ser agregado. Por favor, inténtelo de nuevo.'));
                 }
 
         }
@@ -146,10 +146,10 @@ class MenusController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $menu = $this->Menus->patchEntity($menu, $this->request->data);
             if ($this->Menus->save($menu)) {
-                $this->Flash->success(__('The menu has been saved.'));
+                $this->Flash->success(__('El menú ha sido editado.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The menu could not be saved. Please, try again.'));
+                $this->Flash->error(__('El menu no pudo ser editado. Por favor, inténtelo de nuevo.'));
             }
         }
         
@@ -197,9 +197,9 @@ class MenusController extends AppController
         }
 
         if ($this->Menus->delete($menu)) {
-            $this->Flash->success(__('The menu has been deleted.'));
+            $this->Flash->success(__('El menú ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('The menu could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El menu no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

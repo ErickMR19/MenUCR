@@ -87,10 +87,10 @@ class MenusDishesCategoriesController extends AppController
 
             $menusDishesCategory = $this->MenusDishesCategories->patchEntity($menusDishesCategory, $this->request->data);
             if ($this->verifyRestaurant($this->request->data) && $this->MenusDishesCategories->save($menusDishesCategory)) {
-                $this->Flash->success(__('The menus dishes category has been saved.'));
+                $this->Flash->success(__('La categoría ha sido agregada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The menus dishes category could not be saved. Please, try again.'));
+                $this->Flash->error(__('La categoría no pudo ser agregada. Por favor, inténtelo de nuevo.'));
             }
 
         }
@@ -152,10 +152,10 @@ class MenusDishesCategoriesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $menusDishesCategory = $this->MenusDishesCategories->patchEntity($menusDishesCategory, $this->request->data);
             if ($this->verifyRestaurant($this->request->data) && $this->MenusDishesCategories->save($menusDishesCategory)) {
-                $this->Flash->success(__('The menus dishes category has been saved.'));
+                $this->Flash->success(__('La categoría ha sido editada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The menus dishes category could not be saved. Please, try again.'));
+                $this->Flash->error(__('La categoría no pudo ser editada. Por favor, inténtelo de nuevo.'));
             }
         }
 
@@ -216,9 +216,9 @@ class MenusDishesCategoriesController extends AppController
         }
 
         if ($this->MenusDishesCategories->delete($menusDishesCategory)) {
-            $this->Flash->success(__('The menus dishes category has been deleted.'));
+            $this->Flash->success(__('La categoría ha sido eliminada.'));
         } else {
-            $this->Flash->error(__('The menus dishes category could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La categoría no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

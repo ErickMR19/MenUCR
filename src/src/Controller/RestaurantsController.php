@@ -80,7 +80,7 @@ class RestaurantsController extends AppController
         if ($this->request->is('post')) {
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
             if ($this->Restaurants->save($restaurant)) {
-                $this->Flash->success(__('The restaurant has been saved.'));
+                $this->Flash->success(__('La soda ha sido agregada.'));
                 //Guardar imagen
                 
                 if (!empty($this->request->data['imagen_seleccionada']["name"])) {
@@ -103,7 +103,7 @@ class RestaurantsController extends AppController
                 }
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
+                $this->Flash->error(__('La soda no pudo ser agregada. Por favor, inténtelo de nuevo.'));
             }
         }
         $associations = $this->Restaurants->Associations->find('list');
@@ -130,7 +130,7 @@ class RestaurantsController extends AppController
             //Salvo el nombre de la imagen anterior
             $nombre_imagen_anterior = $this->request->data['image_name'];
             if ($this->Restaurants->save($restaurant)) {
-                $this->Flash->success(__('The restaurant has been saved.'));
+                $this->Flash->success(__('La soda ha sido editada.'));
                 //Edicion de imagen
                 if (!empty($this->request->data['imagen_seleccionada']["name"])) {
                     $file = $this->request->data['imagen_seleccionada']; 
@@ -155,7 +155,7 @@ class RestaurantsController extends AppController
                 }
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The restaurant could not be saved. Please, try again.'));
+                $this->Flash->error(__('La soda no pudo ser editada. Por favor, inténtelo de nuevo.'));
             }
         }
         $associations = $this->Restaurants->Associations->find('list');
@@ -176,13 +176,13 @@ class RestaurantsController extends AppController
         $restaurant = $this->Restaurants->get($id);
         $nombre_imagen_anterior = $restaurant->image_name;
         if ($this->Restaurants->delete($restaurant)) {
-            $this->Flash->success(__('The restaurant has been deleted.'));
+            $this->Flash->success(__('La soda ha sido eliminada.'));
             //Se borra la imagen del folder de imagenes-restaurantes
              if (file_exists(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior)) {
                  unlink(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior);
              }
         } else {
-            $this->Flash->error(__('The restaurant could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La soda no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

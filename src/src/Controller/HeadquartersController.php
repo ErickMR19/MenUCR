@@ -58,10 +58,10 @@ class HeadquartersController extends AppController
         if ($this->request->is('post')) {
             $headquarters = $this->Headquarters->patchEntity($headquarters, $this->request->data);
             if ($this->Headquarters->save($headquarters)) {
-                $this->Flash->success(__('The headquarters has been saved.'));
+                $this->Flash->success(__('La sede ha sido agregada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The headquarters could not be saved. Please, try again.'));
+                $this->Flash->error(__('La sede no pudo ser agregada. Por favor, inténtelo de nuevo.'));
             }
         }
         $this->set(compact('headquarters'));
@@ -83,10 +83,10 @@ class HeadquartersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $headquarters = $this->Headquarters->patchEntity($headquarters, $this->request->data);
             if ($this->Headquarters->save($headquarters)) {
-                $this->Flash->success(__('The headquarters has been saved.'));
+                $this->Flash->success(__('La sede ha sido editada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The headquarters could not be saved. Please, try again.'));
+                $this->Flash->error(__('La sede no pudo ser editada. Por favor, inténtelo de nuevo.'));
             }
         }
         $this->set(compact('headquarters'));
@@ -105,9 +105,9 @@ class HeadquartersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $headquarters = $this->Headquarters->get($id);
         if ($this->Headquarters->delete($headquarters)) {
-            $this->Flash->success(__('The headquarters has been deleted.'));
+            $this->Flash->success(__('La sede ha sido eliminada.'));
         } else {
-            $this->Flash->error(__('The headquarters could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La sede no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }

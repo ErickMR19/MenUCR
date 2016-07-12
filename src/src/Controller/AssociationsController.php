@@ -61,10 +61,10 @@ class AssociationsController extends AppController
         if ($this->request->is('post')) {
             $association = $this->Associations->patchEntity($association, $this->request->data);
             if ($this->Associations->save($association)) {
-                $this->Flash->success(__('The association has been saved.'));
+                $this->Flash->success(__('La asociación ha sido agregada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The association could not be saved. Please, try again.'));
+                $this->Flash->error(__('La asociación no ha podido ser agregada. Por favor, inténtalo de nuevo.'));
             }
         }
         $headquarters = $this->Associations->Headquarters->find('list');
@@ -87,10 +87,10 @@ class AssociationsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $association = $this->Associations->patchEntity($association, $this->request->data);
             if ($this->Associations->save($association)) {
-                $this->Flash->success(__('The association has been saved.'));
+                $this->Flash->success(__('La asociación ha sido editada.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The association could not be saved. Please, try again.'));
+                $this->Flash->error(__('La asociación no ha podido ser editada. Por favor, inténtalo de nuevo.'));
             }
         }
         $headquarters = $this->Associations->Headquarters->find('list');
@@ -110,9 +110,9 @@ class AssociationsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $association = $this->Associations->get($id);
         if ($this->Associations->delete($association)) {
-            $this->Flash->success(__('The association has been deleted.'));
+            $this->Flash->success(__('La asociación ha sido eliminada.'));
         } else {
-            $this->Flash->error(__('The association could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La asociación no ha podido ser eliminada. Por favor, inténtalo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }
