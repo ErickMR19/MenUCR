@@ -8,6 +8,7 @@ use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
 use Cake\Mailer\Email;
 use Cake\Validation\Validator;
+use Cake\Network\Http\Client;
 
 /**
  * Restaurants Controller
@@ -294,20 +295,33 @@ class RestaurantsController extends AppController
                     ->requirePresence('name')
                     ->notEmpty('name', 'El nombre es requerido.')
                     ->requirePresence('body')
-                    ->notEmpty('comment', 'Necesita escribir un mensaje.');
+                    ->notEmpty('comment', 'Necesita escribir un mensaje.')
+                    ->requirePresence('recaptchaResponse')
+                    ->notEmpty('recaptchaResponse', 'Realizar el CAPTCHA es requerido.');
                 $errors = $validator->errors($this->request->data());
             }
             
             if( empty($errors) )
             {
                 $datos = $this->request->data;
-                $email = new Email('default');
-                $email->from([$datos['email'] => $datos['name']])
-                    ->to([$restaurant['email'] => $restaurant['name']])
-                    ->replyTo([$datos['email'] => $datos['name']])
-                    ->subject('Mensaje recibido mediante MenUCR')
-                    ->send($datos['body']);
-                $errors['Exito'] = 1;
+                $http = new Client();
+                $response = $http->post('https://www.google.com/recaptcha/api/siteverify', [
+                  'secret' => '6LfI5yQTAAAAAJVOe5YFdkEK_fRgVdJTjJ24alaA',
+                  'response' => $datos['recaptchaResponse']
+                ]);
+                if($response->json['success'])
+                {
+                    $email = new Email('default');
+                    $email->from([$datos['email'] => $datos['name']])
+                        ->to([$restaurant['email'] => $restaurant['name']])
+                        ->replyTo([$datos['email'] => $datos['name']])
+                        ->subject('Mensaje recibido mediante MenUCR')
+                        ->send($datos['body']);
+                    $errors['Exito'] = 1;
+                }
+                else {                    
+                    $errors['captcha'] = 'Error en el captcha';
+                }
             }
             else {
                 $errors['Exito'] = 0;

@@ -179,10 +179,10 @@ return [
         'default' => [
             'className' => 'Smtp',
             // The following keys are used in SMTP transports
-            'host' => 'ssrs.reachmail.net',
-            'port' => 25,
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
             'timeout' => 30,
-            'username' => '69\erick',
+            'username' => 'emr.developing@gmail.com',
             'password' => '123456ABC',
             'client' => null,
             'tls' => true,
