@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Exception\Exception;
 use Cake\Event\Event;
 use Cake\Datasource\Exception\RecordNotFoundException;
 
@@ -62,6 +63,7 @@ class DishesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que desea ver no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -134,6 +136,7 @@ class DishesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que desea editar no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -170,17 +173,28 @@ class DishesController extends AppController
                 }
                 ]
             ]);
+
+
+            try
+            {
+                if ($this->Dishes->delete($dish)) {
+                    $this->Flash->success(__('El platillo ha sido eliminado.'));
+                } else {
+                    $this->Flash->error(__('El platillo no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
+                }
+            }
+            catch (\PDOException $e)
+            {
+                $this->Flash->error(__('No se pudo borrar el platillo. Debe primero borrar información asociada a este platillo como tipos de menú o tipos de platillo.'));
+            }
+
         }
-        catch (RecordNotFoundException $e)
+        catch (RecordNotFoundException $record)
         {
-            return $this->redirect(['action' => 'index']);
+            $this->Flash->error(__('La información que desea borrar no se encuentra en la base de datos. Verifique e intente de nuevo.'));
         }
 
-        if ($this->Dishes->delete($dish)) {
-            $this->Flash->success(__('El platillo ha sido eliminado.'));
-        } else {
-            $this->Flash->error(__('El platillo no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
-        }
+
         return $this->redirect(['action' => 'index']);
     }
 

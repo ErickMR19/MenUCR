@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Event\Event;
+use Cake\Console\Exception;
 
 /**
  * Associations Controller
@@ -42,9 +44,19 @@ class AssociationsController extends AppController
      */
     public function view($id = null)
     {
-        $association = $this->Associations->get($id, [
-            'contain' => ['Headquarters', 'Restaurants', 'Users']
-        ]);
+        try
+        {
+            $association = $this->Associations->get($id, [
+                'contain' => ['Headquarters', 'Restaurants', 'Users']
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que intenta ver no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
 
         $this->set('association', $association);
         $this->set('_serialize', ['association']);
@@ -81,9 +93,19 @@ class AssociationsController extends AppController
      */
     public function edit($id = null)
     {
-        $association = $this->Associations->get($id, [
-            'contain' => []
-        ]);
+        try
+        {
+            $association = $this->Associations->get($id, [
+                'contain' => []
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que intenta editar no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $association = $this->Associations->patchEntity($association, $this->request->data);
             if ($this->Associations->save($association)) {
@@ -108,12 +130,29 @@ class AssociationsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $association = $this->Associations->get($id);
-        if ($this->Associations->delete($association)) {
-            $this->Flash->success(__('La asociación ha sido eliminada.'));
-        } else {
-            $this->Flash->error(__('La asociación no ha podido ser eliminada. Por favor, inténtalo de nuevo.'));
+
+        try
+        {
+            $association = $this->Associations->get($id);
+
+            try
+            {
+                if ($this->Associations->delete($association)) {
+                    $this->Flash->success(__('La asociación ha sido eliminada.'));
+                } else {
+                    $this->Flash->error(__('La asociación no ha podido ser eliminada. Por favor, inténtalo de nuevo.'));
+                }
+            }
+            catch (\PDOException $e)
+            {
+                $this->Flash->error(__('No se puede borrar la asociación. Debe primero borrar información asociada como usuarios o sodas.'));
+            }
         }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que intenta borrar no existe en la base de datos. Verifique e intente de nuevo.'));
+        }
+
         return $this->redirect(['action' => 'index']);
     }
 }

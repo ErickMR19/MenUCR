@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Event\Event;
 use Cake\Log\Log;
 
@@ -70,9 +71,18 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, [
-            'contain' => ['Associations']
-        ]);
+        try
+        {
+            $user = $this->Users->get($id, [
+                'contain' => ['Associations']
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de ver no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
 
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
@@ -86,7 +96,18 @@ class UsersController extends AppController
      */
     public function changePassword()
     {
-        $user =$this->Users->get($this->Auth->user('id'));
+        try
+        {
+            $user =$this->Users->get($this->Auth->user('id'));
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de recuperar no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
+
         if (!empty($this->request->data)) {
             $user = $this->Users->patchEntity($user, [
                     'old_password'  => $this->request->data['old_password'],
@@ -137,9 +158,21 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, [
-            'contain' => []
-        ]);
+        try
+        {
+            $user = $this->Users->get($id, [
+                'contain' => []
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de editar no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
+
+
         $isAdmin = $this->Auth->user('role') === 'admin';
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->data;
@@ -169,7 +202,18 @@ class UsersController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
+
+        try
+        {
+            $user = $this->Users->get($id);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de borrar no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
         if ($this->Users->delete($user)) {
             $this->Flash->success(__('El usuario ha sido eliminado.'));
         } else {

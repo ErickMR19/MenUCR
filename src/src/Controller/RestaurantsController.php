@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
@@ -68,9 +69,19 @@ class RestaurantsController extends AppController
      */
     public function view($id = null)
     {
-        $restaurant = $this->Restaurants->get($id, [
-            'contain' => ['Associations', 'Categories', 'Menus']
-        ]);
+        try
+        {
+            $restaurant = $this->Restaurants->get($id, [
+                'contain' => ['Associations', 'Categories', 'Menus']
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de ver no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
 
         $this->set('restaurant', $restaurant);
         $this->set('_serialize', ['restaurant']);
@@ -129,9 +140,19 @@ class RestaurantsController extends AppController
     public function edit($id = null)
     {
         $sedes = TableRegistry::get('Headquarters')->find();
-        $restaurant = $this->Restaurants->get($id, [
-            'contain' => []
-        ]);
+
+        try
+        {
+            $restaurant = $this->Restaurants->get($id, [
+                'contain' => []
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de editar no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $restaurant = $this->Restaurants->patchEntity($restaurant, $this->request->data);
             //debug($this->request->data);
@@ -181,17 +202,34 @@ class RestaurantsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $restaurant = $this->Restaurants->get($id);
-        $nombre_imagen_anterior = $restaurant->image_name;
-        if ($this->Restaurants->delete($restaurant)) {
-            $this->Flash->success(__('La soda ha sido eliminada.'));
-            //Se borra la imagen del folder de imagenes-restaurantes
-             if (file_exists(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior)) {
-                 unlink(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior);
-             }
-        } else {
-            $this->Flash->error(__('La soda no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
+
+        try
+        {
+            $restaurant = $this->Restaurants->get($id);
+
+            try
+            {
+                $nombre_imagen_anterior = $restaurant->image_name;
+                if ($this->Restaurants->delete($restaurant)) {
+                    $this->Flash->success(__('La soda ha sido eliminada.'));
+                    //Se borra la imagen del folder de imagenes-restaurantes
+                    if (file_exists(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior)) {
+                        unlink(WWW_ROOT . 'img/restaurants_pictures/' . $nombre_imagen_anterior);
+                    }
+                } else {
+                    $this->Flash->error(__('La soda no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
+                }
+            }
+            catch (\PDOException $e)
+            {
+                $this->Flash->error(__('No se pudo eliminar la soda. Debe borrar primero información como tipos de menú, tipos de platillo o platillos.'));
+            }
         }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que está tratando de borrar no existe en la base de datos. Verifique e intente de nuevo.'));
+        }
+
         return $this->redirect(['action' => 'index']);
     }
 

@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Console\Exception;
+use Cake\Datasource\Exception\RecordNotFoundException;
 
 /**
  * Headquarters Controller
@@ -44,9 +46,18 @@ class HeadquartersController extends AppController
      */
     public function view($id = null)
     {
-        $headquarters = $this->Headquarters->get($id, [
-            'contain' => []
-        ]);
+        try
+        {
+            $headquarters = $this->Headquarters->get($id, [
+                'contain' => []
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que intenta ver no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
 
         $this->set('headquarters', $headquarters);
         $this->set('_serialize', ['headquarters']);
@@ -82,9 +93,19 @@ class HeadquartersController extends AppController
      */
     public function edit($id = null)
     {
-        $headquarters = $this->Headquarters->get($id, [
-            'contain' => []
-        ]);
+        try
+        {
+            $headquarters = $this->Headquarters->get($id, [
+                'contain' => []
+            ]);
+        }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que intenta editar no existe en la base de datos. Verifique e intente de nuevo.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $headquarters = $this->Headquarters->patchEntity($headquarters, $this->request->data);
             if ($this->Headquarters->save($headquarters)) {
@@ -108,12 +129,30 @@ class HeadquartersController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $headquarters = $this->Headquarters->get($id);
-        if ($this->Headquarters->delete($headquarters)) {
-            $this->Flash->success(__('La sede ha sido eliminada.'));
-        } else {
-            $this->Flash->error(__('La sede no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
+
+        try{
+            $headquarters = $this->Headquarters->get($id);
+
+            try{
+                if ($this->Headquarters->delete($headquarters)) {
+                    $this->Flash->success(__('La sede ha sido eliminada.'));
+                } else {
+                    $this->Flash->error(__('La sede no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
+                }
+            }
+            catch (\PDOException $e)
+            {
+                $this->Flash->error(__('La sede no pudo ser eliminada. Debe primero borrar información asociada a esta sede, como por ejemplo asociaciones.'));
+            }
         }
+        catch (RecordNotFoundException $record)
+        {
+            $this->Flash->error(__('La información que intenta borrar no existe en la base de datos. Verifique e intente de nuevo.'));
+        }
+
+
+
+
         return $this->redirect(['action' => 'index']);
     }
 }

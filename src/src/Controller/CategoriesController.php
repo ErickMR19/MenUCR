@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Console\Exception;
 
 /**
  * Categories Controller
@@ -62,6 +63,7 @@ class CategoriesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que desea ver no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -135,6 +137,7 @@ class CategoriesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que desea editar no se encuentra en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -184,17 +187,27 @@ class CategoriesController extends AppController
                 }
                 ]
             ]);
+
+            try
+            {
+                if ($this->Categories->delete($category)) {
+                    $this->Flash->success(__('La categoría ha sido eliminada.'));
+                } else {
+                    $this->Flash->error(__('La categoria no ha podido ser eliminada. Por favor, inténtalo de nuevo.'));
+                }
+            }
+            catch (\PDOException $e)
+            {
+                $this->Flash->error(__('No se pudo borrar el tipo de platillo. Debe borrar información asociada a este tipo de menú primero, como por ejemplo algún menú.'));
+            }
+
         }
-        catch (RecordNotFoundException $e)
+        catch (RecordNotFoundException $record)
         {
-            return $this->redirect(['action' => 'index']);
+            $this->Flash->error(__('La información que desea borrar no se encuentra en la base de datos. Verifique e intente de nuevo.'));
         }
 
-        if ($this->Categories->delete($category)) {
-            $this->Flash->success(__('La categoría ha sido eliminada.'));
-        } else {
-            $this->Flash->error(__('La categoria no ha podido ser eliminada. Por favor, inténtalo de nuevo.'));
-        }
+
         return $this->redirect(['action' => 'index']);
     }
 

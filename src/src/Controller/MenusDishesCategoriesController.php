@@ -64,6 +64,7 @@ class MenusDishesCategoriesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que está tratando de ver no existe en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -146,6 +147,7 @@ class MenusDishesCategoriesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que está tratando de editar no existe en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
@@ -212,13 +214,14 @@ class MenusDishesCategoriesController extends AppController
         }
         catch (RecordNotFoundException $e)
         {
+            $this->Flash->error(__('La información que está tratando de borrar no existe en la base de datos. Verifique e intente de nuevo.'));
             return $this->redirect(['action' => 'index']);
         }
 
         if ($this->MenusDishesCategories->delete($menusDishesCategory)) {
-            $this->Flash->success(__('La categoría ha sido eliminada.'));
+            $this->Flash->success(__('El menú ha sido eliminado.'));
         } else {
-            $this->Flash->error(__('La categoría no pudo ser eliminada. Por favor, inténtelo de nuevo.'));
+            $this->Flash->error(__('El menú no pudo ser eliminado. Por favor, inténtelo de nuevo.'));
         }
         return $this->redirect(['action' => 'index']);
     }
